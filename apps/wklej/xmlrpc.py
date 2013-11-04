@@ -77,7 +77,7 @@ def auth_dodaj_wpis(tresc, syntax, salt):
     Pozwala zdalnei dodawac wpisy do konta
     """
     try:
-        p = ProfilUzytkownika.objects.get(aktualny_salt=salt)
+        p = ProfilUzytkownika.objects.get(current_salt=salt)
     except:
         return dodaj_wpis(tresc, syntax)
     w = Wklejka(nickname=p.username(), body=tresc, syntax=syntax,  user=p.user)
@@ -92,7 +92,7 @@ def auth_dodaj_prywatny_wpis(tresc, syntax, salt):
     """
 
     try:
-        p = ProfilUzytkownika.objects.get(aktualny_salt=salt)
+        p = ProfilUzytkownika.objects.get(current_salt=salt)
     except:
         return dodaj_prywatny_wpis(tresc, syntax)
 
