@@ -1,0 +1,6 @@
+*.py[co]
+*.db
+*.sw[op]
+*~
+env.py
+

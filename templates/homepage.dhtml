@@ -1,0 +1,51 @@
+{% extends "base.dhtml" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Strona Główna" %}{% endblock %}
+
+{% block content %}
+<div class="module">
+    <form action="/" method="post" accept-charset="utf-8">
+        {% csrf_token %}
+
+        {% if form.errors %}
+        {# form.errors #}
+        <div class="error">{% firstof errormsg "Na pewno chcesz dodać pustą wklejkę?" %}</div>
+        {% endif %}
+
+
+        {% if w %}
+        <div class="info">{% trans "Odpowiadasz na wklejkę " %}<a href="{{ w.get_absolute_url }}">#{{ w.id }}</a></div>
+        {% endif %}
+
+        {% if form.recaptcha %}
+        <div id="captcha">
+            {{ form.recaptcha }}
+            <input type="hidden" name="has_captcha" value="1">
+        </div>
+        {% endif %}
+
+        <label for="id_syntax">{% trans "Kolorowanie:" %}</label>
+        {{ form.syntax }}
+
+        <p class="right">
+        <input type="checkbox" name="is_private" {% if form.data.is_private %}checked="checked"{% endif %} id="private">
+        <label for="private" class="r">{% trans "Prywatna?" %}</label>
+        </p>
+
+        {# for responses: #}
+        {% if w %}
+        <input type="hidden" name="parent" value="{{ w.id }}">
+        {% endif %}
+
+        <textarea id="id_body" name="body" rows=15>{% if source %}{{ w.body }}{% else %}{{ form.data.body }}{% endif %}</textarea>
+
+        <p class="alignc">
+        <input type="submit" value="Wklej +" id='submit'>
+        </p>
+    </form>
+
+
+</div>
+{% endblock %}

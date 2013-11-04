@@ -1,0 +1,39 @@
+{% extends "base.dhtml" %}
+
+{% block title %}logowanie{% endblock %}
+
+{% block content %}
+<div id="content">
+    {% if user.is_authenticated %}
+    <h1>Jesteś już zalogowany jako {{ user.username }}</h1>
+    <span>jeżeli to nie ty <a href="/logout/">wyloguj się</a></span>
+    {% else %}
+
+    {% if form.errors %}
+    <p class="error">Sorry, zly user albo haslo</p>
+    {% endif %}
+
+    <div id="loginform" class="module">
+        <form action='.' method='post'>
+            {% csrf_token %}
+            <fieldset>
+                {{ form.as_p }}
+                <p>
+                    <input type="hidden" name="next" value="{{ next|escape }}" />
+                    <input type="submit" class="loginbtn" value="zaloguj" />
+                </p>
+                <p>
+                <a href="/rejestracja" style="font-size: 16px;">Nie masz konta? Zarejestruj się!</a>
+                </p>
+                <p>
+                <a href="{% url password_reset %}">Zapomniałeś hasła? Zresetuj!</a>
+                </p>
+            </fieldset>
+        </form>
+    </div>
+
+    {% endif %}
+</div>
+{% endblock %}
+
+

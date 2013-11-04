@@ -1,0 +1,4 @@
+[DEFAULT]
+VISIBILITY = public
+AUTHOR = myname
+KEY = API_KEY

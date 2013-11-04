@@ -1,0 +1,51 @@
+<style type="text/css">
+   .pager {
+      padding-top: 20px;
+      float: right;
+      font-family: "Trebuchet MS", sans-serif;
+      }
+   .pager .page a {
+      margin-left: 1px;
+      margin-right: 1px;
+      padding: 5px 10px;
+      text-decoration: none;
+      color: #fff;
+      background: #476;
+      }
+   .pager .current {
+      background: orange;
+      color: #fff;
+      font-weight: bold;
+      padding: 5px 10px;
+      margin-left: 2px;
+      margin-right: 2px;
+      }
+</style>
+<div class="pager">
+   {% if has_previous %}
+      <span class="page">
+        <a href="?page={{ previous }}">← poprzednia</a>
+      </span>
+   {% endif %}
+   {% if show_first %}
+      <span class="page"><a href="?page=1">1</a></span>
+      <span class="ellipsis">...</span>
+      {% endif %}
+   {% for linkpage in page_numbers %}
+      {% ifequal linkpage page %}
+         <span class="current">{{ page }}</span>
+      {% else %}
+         <span class="page">
+             <a href="?page={{ linkpage }}">{{ linkpage }}</a>
+         </span>
+      {% endifequal %}
+   {% endfor %}
+   {% if show_last %}
+       <span class="ellipsis">...</span>
+       <span class="page"><a href="?page={{ last }}">{{ last }}</a></span>
+   {% endif %}
+   {% if has_next %}
+      <span class="page"><a href="?page={{ next }}">następna →</a></span>
+   {% endif %}
+</div>
+<div class="clear"></div>

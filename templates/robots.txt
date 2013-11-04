@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /salt
+Disallow: /hash
+Disallow: /rejestracja
+Disallow: /own
+Disallow: /accounts
+Disallow: /h

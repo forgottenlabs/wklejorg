@@ -1,0 +1,10 @@
+Witaj!
+Dziękujemy za rejestracje w serwisie wklej.org, aby dopełnić dzieła musisz aktywować swoje konto klikając w poniższy link:
+
+http://wklej.org/accounts/activate/{{ activation_key }} 
+
+Jeżeli po kliknięciu w link nic się nie stało, skopiuj go do pasku adresu w przeglądarce i wciśnij 'enter'.
+Na aktywację konta masz {{ expiration_days }} dni - po tym czasie kod stanie się nieaktywny, a konto usunięte.
+
+Pozdrawiamy!
+Ekipa wklej.org

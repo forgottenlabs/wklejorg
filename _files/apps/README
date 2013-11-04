@@ -1,0 +1,39 @@
+VERSION 0.2.0:
+
+1. Now you can paste straight from file
+    $ wklej filename
+
+2. Initial UTF-8 support for emerge logs
+
+We have added few more options to ~/.wklejrc file.
+
+VISIBILITY - PUBLIC or PRIVATE
+AUTHOR - what name you want to use if nothing entered "anonymous" will be used
+
+For more options see: 
+    $ wklej -h
+
+
+
+VERSION 0.1.6:
+
+As of version 0.1.6 of wklej script you can manage your pastes on wklej.org website. 
+IN order to do this you will need to get an API KEY. To get the KEY follow
+few simple steps:
+
+1. Go to http://wklej.org/rejestracja/ and create an account.
+2. Confirm/Activate  your account.
+3. Go to http://wklej.org/salt and click "Create new salt"
+4. Copy the generated API Key to ~/.wklejrc file
+
+---------------------------------------------------------------
+
+We have added few more options to ~/.wklejrc file
+
+VISIBILITY - public or private
+AUTHOR - what name you want to use.
+
+~/.wklejrc :
+
+[DEFAULT]
+KEY = MY_API_KEY

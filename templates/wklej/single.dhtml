@@ -1,0 +1,36 @@
+{% extends "base.dhtml" %}
+{% load webdesign i18n %}
+
+{% block title %}Wklejka #{{ w.id }}{% endblock %}
+
+{% block content %}
+{% if w.is_deleted %}
+<div id="content" style="text-align:center;font-size:20px;font-weight:bold">
+    {% trans " wklejka została usunięta" %}<br /> {% trans "Przekierowuję do panelu" %}</div>
+<meta http-equiv="REFRESH" content="2;url=/own/"></HEAD>
+{% else %}
+
+
+<div class="bottom20px">
+    <p class="left">
+    <strong> {% if w.wklejacz %}{{ w.wklejacz }}{% else %}{{ w.autor }}{% endif %}</strong> / <span class="date" title="{{ w.pub_date|date:"H:i d-m-Y" }}">{{ w.pub_date|timesince }} {% trans "temu"%} </span> | <a href='./dl/'>Download</a> | <a href='./txt/'>Plaintext</a> | <a href='./re/?s=1'>Odpowiedz</a> | {% if user.is_staff %}<a href='/admin/wklej/wklejka/{{ w.id }}/'>Moderuj</a>{% endif %}
+    </p>
+    <form action="." method="GET" id="choose_syntax_form" class="right">
+        {{ rsform }}
+        <input type="submit" value="zmień">
+    </form>
+    <div class="clear"></div>
+</div>
+
+
+
+{% load kolorki %}
+<div class="wklejcontent">
+    {% autoescape off %}
+    {% code hl %}{{ w.body}}{% endcode %}
+    {% endautoescape %}
+</div>
+{% endif %}{# if w.is_deleted #}
+
+{% endblock %}
+
