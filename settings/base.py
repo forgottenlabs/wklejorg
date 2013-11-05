@@ -152,6 +152,3 @@ LOGGING = {
         },
     },
 }
-
-
-from env import *
