@@ -3,4 +3,5 @@
 *.sw[op]
 *~
 env.py
+settings/local.py
 

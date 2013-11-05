@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import patterns
 from django.conf.urls.defaults import url
 from django.conf.urls.defaults import include
-from settings import FILES_ROOT, STATIC_ROOT
+from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
@@ -16,9 +16,10 @@ urlpatterns = patterns(
     (r'^admin/', include(admin.site.urls)),
 
     # serving statics:
-    (r'^f/(.*)', 'django.views.static.serve', {'document_root': FILES_ROOT}),
+    (r'^f/(.*)', 'django.views.static.serve',
+     {'document_root': settings.FILES_ROOT}),
     (r'^static/(.*)', 'django.views.static.serve',
-     {'document_root': STATIC_ROOT}),
+     {'document_root': settings.STATIC_ROOT}),
 
     # 403
     (r'^403/$', 'django.views.generic.simple.direct_to_template',
