@@ -28,16 +28,16 @@ import sys
 def rel(*x):
     return os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
 
-sys.path.append(rel('apps'))
-sys.path.append(rel('forks'))
+sys.path.append(rel('../apps'))
+sys.path.append(rel('../forks'))
 
-MEDIA_ROOT = rel('_media')
-FILES_ROOT = rel('_files')
+MEDIA_ROOT = rel('../_media')
+FILES_ROOT = rel('../_files')
 
 MEDIA_URL = ''
-STATIC_ROOT = rel('_static')
+STATIC_ROOT = rel('../_static')
 STATIC_URL = '/static/'
-LOCALE_PATHS = [rel('locale')]
+LOCALE_PATHS = [rel('../locale')]
 
 ###############################################################################
 ###############################################################################
@@ -47,7 +47,7 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_DIRS = (
-    rel('templates')
+    rel('../templates')
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -77,7 +77,7 @@ MIDDLEWARE_CLASSES = (
 
 ###############################################################################
 ###############################################################################
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -99,7 +99,7 @@ INSTALLED_APPS = (
     # Project specific
     'wklej',
     'userstuff',
-)
+]
 
 
 ###############################################################################
