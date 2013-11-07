@@ -1,3 +1,4 @@
+{% load analytics %}
 {% spaceless %}
 <title>{% block title %}{% endblock %} – Wklej.org</title>
 <meta name="google-site-verification" content="pRGypfRwZ9BqcuJjWEFD8jlmS3WtKGT0v9tWuzUcNEQ" />
@@ -31,13 +32,12 @@
         (cc) 2006-2013  <a href='http://forgottenlabs.com' title="ForgottenLabs">ForgottenLabs.com</a>
         <p class="right">
         <a href='/'>strona główna</a> /
-        <a href='/wklejki/'>najnowsze</a> /
         <a href='/api/'>API</a> /
         <a href='/regulamin/'>regulamin</a> /
         <a href='/kontakt/'>kontakt</a>
     </div>
 </div>
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"> </script>
-<script type="text/javascript"> _uacct = "UA-302542-6"; urchinTracker(); </script>
+<script type="text/javascript"> _uacct = "{% google_analytics_id %}"; urchinTracker(); </script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 {% endspaceless %}
