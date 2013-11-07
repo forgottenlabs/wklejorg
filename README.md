@@ -9,8 +9,11 @@ Source code of wklej.org nopaste. Nopaste built with Django.
     $ git clone https://github.com/czartur/wklejorg
     $ cd wklejorg
     $ pip install -r requirements.txt
-    $ cp env.py.example env.py
-    $ vim env.py
+    $ cp settings/base.py settings/local.py
+    $ cat settings/local.py.example >> settings/local.py
+    $ vim settings/env.py
+    $ export DJANGO_SETTINGS_MODULE=settings.local
     $ ./manage.py syncdb
     $ ./manage.py migrate
     $ ./manage.py runserver
+
