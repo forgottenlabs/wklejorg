@@ -4,7 +4,7 @@ from django import forms
 from wklej.models import Wklejka
 from wklejorg.lib.antispam import check_for_link_spam
 from recaptcha_app.fields import ReCaptchaField
-from wklej.models import LISTA_LEXEROW
+from wklej.models import LEXERS
 
 
 class WklejkaForm(forms.ModelForm):
@@ -48,4 +48,4 @@ class WklejkaCaptchaForm(forms.ModelForm):
 ### To change syntax hilight on "single" page.
 class RotateSyntaxForm(forms.Form):
     hl = forms.CharField(max_length=100, label="syntax ",
-                         widget=forms.Select(choices=LISTA_LEXEROW))
+                         widget=forms.Select(choices=LEXERS))

@@ -13,7 +13,7 @@ BANNED_LEXERS = [
 ]
 
 
-LISTA_LEXEROW = [
+LEXERS = [
     ('python', "Python"),
     ('perl', "Perl"),
     ('ruby', "Ruby"),
@@ -44,7 +44,7 @@ class Wklejka(models.Model):
     hash = models.CharField(max_length=45, blank=True)
 
     # syntax
-    syntax = models.CharField(max_length=30, choices=LISTA_LEXEROW,
+    syntax = models.CharField(max_length=30, choices=LEXERS,
                               blank=True, null=True)
     guessed_syntax = models.CharField(max_length=30, blank=True, null=True)
 
@@ -65,6 +65,7 @@ class Wklejka(models.Model):
         verbose_name = "Wklejka"
         verbose_name_plural = "Wklejki"
         ordering = ['-pub_date']
+        db_table = 'wklej_wklejka'
 
     def __unicode__(self):
         return "%s at %s" % (self.autor, str(self.pub_date))
