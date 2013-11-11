@@ -11,9 +11,9 @@
         <a href='/' class="title left"><img src=/f/img/logo.png></a><a href='/'>Dodaj nową wklejkę +</a>
         <p class="right">
         {% if user.is_authenticated %}
-        Zalogowany jako <strong>{{ user }}</strong>  | <a href='{% url own %}'>Panel</a> | <a href='{% url registration:auth_logout %}'>Wyloguj</a>
+        Zalogowany jako <strong>{{ user }}</strong>  | <a href='{% url own %}'>Panel</a> | <a href='{% url auth_logout %}'>Wyloguj</a>
         {% else %}
-        Cześć. <a href='{% url registration:auth_login %}'>zaloguj się</a> lub <a href='{% url registration:registration_register %}'>zarejestruj</a>
+        Cześć. <a href='{% url auth_login %}'>zaloguj się</a> lub <a href='{% url registration_register %}'>zarejestruj</a>
         {% endif %}
         </p>
     </div>

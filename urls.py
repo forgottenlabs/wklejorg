@@ -60,7 +60,7 @@ urlpatterns = patterns(
         {'profile_callback': UserProfile.objects.create},
         name='registration_register'),
 
-    url(r'^accounts/', include('registration.urls', namespace="registration")),
+    url(r'^accounts/', include('registration.urls')),
 
     ### bunch of redirects
     url(r'^accounts/profile/$', 'django.views.generic.simple.redirect_to',
