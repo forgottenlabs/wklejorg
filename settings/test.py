@@ -16,3 +16,4 @@ TEMPLATE_DEBUG = DEBUG
 INSTALLED_APPS += ['discoverage']
 TEST_RUNNER = 'discoverage.DiscoverageRunner'
 SOUTH_TESTS_MIGRATE = False
+GOOGLE_ANALYTICS_ID = ''
