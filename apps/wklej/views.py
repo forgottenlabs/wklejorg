@@ -5,7 +5,6 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.template.response import TemplateResponse
-from django.views.generic.list_detail import object_list
 from wklej.forms import RotateSyntaxForm
 from wklej.forms import WklejkaForm
 from wklej.models import Wklejka, BANNED_LEXERS
@@ -95,10 +94,7 @@ def re(request, id=0):
     it is considered as True.
     """
 
-    if id:
-        w = get_object_or_404(Wklejka, pk=id, is_private=False)
-    elif hash:
-        w = get_object_or_404(Wklejka, hash=hash, is_private=True)
+    w = get_object_or_404(Wklejka, pk=id, is_private=False)
 
     # then i check whether the s variable is passed:
     s = request.GET.get("s", '')
@@ -114,6 +110,7 @@ def re(request, id=0):
     )
 
 
+@login_required
 def delete(request, id=0, hash=''):
     """
     This view is responsible for deleting a single paste,
@@ -162,25 +159,25 @@ def own(request):
     )
 
 
-def wklejki(request):
-    """
-    This view will list a list of users pastes.
-    It's using generic view so it has it's own caching
-    and pagination mechanism (which is cool)
-    """
+#def wklejki(request):
+    #"""
+    #This view will list a list of users pastes.
+    #It's using generic view so it has it's own caching
+    #and pagination mechanism (which is cool)
+    #"""
 
-    queryset = Wklejka.objects.order_by("-pub_date").filter(
-        is_deleted=False,
-        is_private=False,
-        is_spam=False,
-    )
+    #queryset = Wklejka.objects.order_by("-pub_date").filter(
+        #is_deleted=False,
+        #is_private=False,
+        #is_spam=False,
+    #)
 
-    return object_list(
-        request, queryset=queryset,
-        paginate_by=25,
-        template_name="wklej/list.dhtml",
-        template_object_name="w",
-    )
+    #return object_list(
+        #request, queryset=queryset,
+        #paginate_by=25,
+        #template_name="wklej/list.dhtml",
+        #template_object_name="w",
+    #)
 
 
 @login_required
