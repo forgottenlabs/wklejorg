@@ -111,5 +111,5 @@ urlpatterns = patterns(
 
 
     ### SALT:
-    (r'^salt/$', 'wklej.views.salt'),
+    url(r'^salt/$', 'wklej.views.salt', name="salt"),
 )

@@ -75,7 +75,6 @@ class Wklejka(models.Model):
     def autor(self):
         return self.user if self.user else self.nickname
 
-    @models.permalink
     def get_absolute_url(self):
         if self.is_private:
             return self.get_hash_url()
@@ -91,6 +90,16 @@ class Wklejka(models.Model):
         if self.is_private:
             return reverse('delete', kwargs={"hash": self.hash})
         return reverse('delete', kwargs={"id": self.id})
+
+    def get_txt_url(self):
+        if self.is_private:
+            return reverse('txt', kwargs={"hash": self.hash})
+        return reverse('txt', kwargs={"id": self.id})
+
+    def get_download_url(self):
+        if self.is_private:
+            return reverse('download', kwargs={"hash": self.hash})
+        return reverse('download', kwargs={"id": self.id})
 
     def is_parent(self):
         if self.wklejka_set.all():
