@@ -1,6 +1,7 @@
 # coding: utf-8
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 from pygments.lexers import get_all_lexers
 all_lexers = get_all_lexers()
@@ -72,10 +73,7 @@ class Wklejka(models.Model):
 
     @property
     def autor(self):
-        if self.user:
-            return self.user
-        else:
-            return self.nickname
+        return self.user if self.user else self.nickname
 
     @models.permalink
     def get_absolute_url(self):
@@ -84,13 +82,15 @@ class Wklejka(models.Model):
         return self.get_id_url()
 
     def get_id_url(self):
-        return ('single', None, {'id': self.id})
+        return reverse('single', kwargs={'id': self.id})
 
     def get_hash_url(self):
-        return ('single', None, {'hash': self.hash})
+        return reverse('single', kwargs={"hash": self.hash})
 
     def get_del_url(self):
-        return ('wklejka_del', None, {'wklejka_id': self.id})
+        if self.is_private:
+            return reverse('delete', kwargs={"hash": self.hash})
+        return reverse('delete', kwargs={"id": self.id})
 
     def is_parent(self):
         if self.wklejka_set.all():
@@ -109,7 +109,7 @@ class Wklejka(models.Model):
         return False
 
     def get_10_lines(self):
-        return "\n".join(self.body.splitlines()[:9])
+        return "\n".join(self.body.splitlines()[:10])
 
     @property
     def hl(self):
