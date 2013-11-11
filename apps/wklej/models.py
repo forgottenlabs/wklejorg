@@ -65,6 +65,7 @@ class Wklejka(models.Model):
         verbose_name = "Wklejka"
         verbose_name_plural = "Wklejki"
         ordering = ['-pub_date']
+        db_table = 'wklej_wklejka'
 
     def __unicode__(self):
         return "%s at %s" % (self.autor, str(self.pub_date))
