@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from helpers.helpers import generate_salt
 
 
-class ProfilUzytkownika(models.Model):
+class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
     nazwa_wyswietlana = models.CharField(max_length=30)
     current_salt = models.CharField(max_length=50)
