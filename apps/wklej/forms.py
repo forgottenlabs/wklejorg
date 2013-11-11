@@ -10,6 +10,9 @@ from wklej.models import LEXERS
 class WklejkaForm(forms.ModelForm):
     nickname = forms.CharField(required=False)
 
+    class Meta:
+        model = Wklejka
+
     def clean_nickname(self):
         if len(self.cleaned_data['nickname']) == 0:
             self.cleaned_data['nickname'] = 'Anonim'
@@ -17,9 +20,6 @@ class WklejkaForm(forms.ModelForm):
             self.cleaned_data['nickname'] = self.cleaned_data['nickname'][:29]
 
         return self.cleaned_data['nickname']
-
-    class Meta:
-        model = Wklejka
 
     def clean_body(self):
         if check_for_link_spam(self.cleaned_data['body']):
@@ -33,6 +33,9 @@ class WklejkaCaptchaForm(forms.ModelForm):
     has_captcha = forms.CharField(widget=forms.HiddenInput, required=False)
     nickname = forms.CharField(required=False)
 
+    class Meta:
+        model = Wklejka
+
     def clean_nickname(self):
         if len(self.cleaned_data['nickname']) == 0:
             self.cleaned_data['nickname'] = 'Anonim'
@@ -40,9 +43,6 @@ class WklejkaCaptchaForm(forms.ModelForm):
             self.cleaned_data['nickname'] = self.cleaned_data['autor'][:29]
 
         return self.cleaned_data['nickname']
-
-    class Meta:
-        model = Wklejka
 
 
 ### To change syntax hilight on "single" page.
