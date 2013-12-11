@@ -106,7 +106,7 @@ INSTALLED_APPS = [
 ###############################################################################
 # 3-day activation window
 ACCOUNT_ACTIVATION_DAYS = 3
-AUTH_PROFILE_MODULE = "userstuff.profiluzytkownika"
+AUTH_PROFILE_MODULE = "userstuff.userprofile"
 
 
 ###############################################################################
