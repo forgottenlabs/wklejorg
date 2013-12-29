@@ -269,7 +269,7 @@ msgstr "homepage"
 msgid "403.forbidden"
 msgstr "Sorry. You can't view this pastie."
 
-msgid "500-title"
+msgid "500.title"
 msgstr "something went terribly wrong :("
 
 msgid "404.title"
