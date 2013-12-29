@@ -4,4 +4,4 @@
 *~
 env.py
 settings/local.py
-
+*.mo
