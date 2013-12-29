@@ -246,3 +246,16 @@ msgstr ""
 #: templates/wklej/single.dhtml:118
 msgid "wklejone przez"
 msgstr ""
+
+
+msgid "homepage"
+msgstr "strona główna"
+
+msgid "403.forbidden"
+msgstr "Sorry. Nie masz uprawnień do oglądania tej wklejki."
+
+msgid "404.title"
+msgstr "Za każdym razem jak dostaniesz 404 ktoś dodaje nową wklejkę!"
+
+msgid "500.title"
+msgstr "coś poszło nie tak :("
