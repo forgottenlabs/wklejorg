@@ -16,3 +16,10 @@ TEMPLATE_DEBUG = DEBUG
 INSTALLED_APPS += ['discoverage']
 TEST_RUNNER = 'discoverage.DiscoverageRunner'
 SOUTH_TESTS_MIGRATE = False
+GOOGLE_ANALYTICS_ID = ''
+COVERAGE_OMIT_MODULES = ['*test*', '*migrations*']
+RECAPTCHA_PRIVATE_KEY = ''
+RECAPTCHA_PUBLIC_KEY = ''
+
+import os
+os.environ['RECAPTCHA_TESTING'] = 'True'

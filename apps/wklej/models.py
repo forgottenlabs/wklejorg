@@ -1,6 +1,7 @@
 # coding: utf-8
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 from pygments.lexers import get_all_lexers
 all_lexers = get_all_lexers()
@@ -13,7 +14,7 @@ BANNED_LEXERS = [
 ]
 
 
-LISTA_LEXEROW = [
+LEXERS = [
     ('python', "Python"),
     ('perl', "Perl"),
     ('ruby', "Ruby"),
@@ -44,7 +45,7 @@ class Wklejka(models.Model):
     hash = models.CharField(max_length=45, blank=True)
 
     # syntax
-    syntax = models.CharField(max_length=30, choices=LISTA_LEXEROW,
+    syntax = models.CharField(max_length=30, choices=LEXERS,
                               blank=True, null=True)
     guessed_syntax = models.CharField(max_length=30, blank=True, null=True)
 
@@ -65,31 +66,40 @@ class Wklejka(models.Model):
         verbose_name = "Wklejka"
         verbose_name_plural = "Wklejki"
         ordering = ['-pub_date']
+        db_table = 'wklej_wklejka'
 
     def __unicode__(self):
         return "%s at %s" % (self.autor, str(self.pub_date))
 
     @property
     def autor(self):
-        if self.user:
-            return self.user
-        else:
-            return self.nickname
+        return self.user if self.user else self.nickname
 
-    @models.permalink
     def get_absolute_url(self):
         if self.is_private:
             return self.get_hash_url()
         return self.get_id_url()
 
     def get_id_url(self):
-        return ('single', None, {'id': self.id})
+        return reverse('single', kwargs={'id': self.id})
 
     def get_hash_url(self):
-        return ('single', None, {'hash': self.hash})
+        return reverse('single', kwargs={"hash": self.hash})
 
     def get_del_url(self):
-        return ('wklejka_del', None, {'wklejka_id': self.id})
+        if self.is_private:
+            return reverse('delete', kwargs={"hash": self.hash})
+        return reverse('delete', kwargs={"id": self.id})
+
+    def get_txt_url(self):
+        if self.is_private:
+            return reverse('txt', kwargs={"hash": self.hash})
+        return reverse('txt', kwargs={"id": self.id})
+
+    def get_download_url(self):
+        if self.is_private:
+            return reverse('download', kwargs={"hash": self.hash})
+        return reverse('download', kwargs={"id": self.id})
 
     def is_parent(self):
         if self.wklejka_set.all():
@@ -108,7 +118,7 @@ class Wklejka(models.Model):
         return False
 
     def get_10_lines(self):
-        return "\n".join(self.body.splitlines()[:9])
+        return "\n".join(self.body.splitlines()[:10])
 
     @property
     def hl(self):

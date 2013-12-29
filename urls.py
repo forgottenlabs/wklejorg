@@ -6,7 +6,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 
-from userstuff.models import ProfilUzytkownika
+from userstuff.models import UserProfile
 from wklej.xmlrpc import rpc_handler
 
 ###############################################################################
@@ -57,10 +57,10 @@ urlpatterns = patterns(
 
     ### registartion stuff
     url(r'^accounts/register/$', 'registration.views.register',
-        {'profile_callback': ProfilUzytkownika.objects.create},
+        {'profile_callback': UserProfile.objects.create},
         name='registration_register'),
 
-    url(r'^accounts/', include('registration.urls', namespace="registration")),
+    url(r'^accounts/', include('registration.urls')),
 
     ### bunch of redirects
     url(r'^accounts/profile/$', 'django.views.generic.simple.redirect_to',
@@ -111,5 +111,5 @@ urlpatterns = patterns(
 
 
     ### SALT:
-    (r'^salt/$', 'wklej.views.salt'),
+    url(r'^salt/$', 'wklej.views.salt', name="salt"),
 )

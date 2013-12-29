@@ -23,7 +23,7 @@ dispatcher = SimpleXMLRPCDispatcher(allow_none=False, encoding=None)  # Py 2.5
 
 # model
 from wklej.models import Wklejka
-from userstuff.models import ProfilUzytkownika
+from userstuff.models import UserProfile
 
 
 def rpc_handler(request):
@@ -77,7 +77,7 @@ def auth_dodaj_wpis(tresc, syntax, salt):
     Pozwala zdalnei dodawac wpisy do konta
     """
     try:
-        p = ProfilUzytkownika.objects.get(aktualny_salt=salt)
+        p = UserProfile.objects.get(current_salt=salt)
     except:
         return dodaj_wpis(tresc, syntax)
     w = Wklejka(nickname=p.username(), body=tresc, syntax=syntax,  user=p.user)
@@ -92,7 +92,7 @@ def auth_dodaj_prywatny_wpis(tresc, syntax, salt):
     """
 
     try:
-        p = ProfilUzytkownika.objects.get(aktualny_salt=salt)
+        p = UserProfile.objects.get(current_salt=salt)
     except:
         return dodaj_prywatny_wpis(tresc, syntax)
 
