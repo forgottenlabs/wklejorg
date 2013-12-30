@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load analytics %}
 {% spaceless %}
     <title>{% block title %}{% endblock %} – Wklej.org</title>
@@ -13,12 +14,12 @@
                 {% if user.is_authenticated %}
                     {% trans "base.howdy" %} <strong>{{ user }}</strong>! |
                     <a href='{% url own %}'>{% trans "base.panel" %}</a> |
-                    <a href='{% url auth_logout %}'>{% trans "base.logout" %}</a>.
+                    <a href='{% url auth_logout %}'>{% trans "base.logout" %}</a>
                 {% else %}
                     {% trans "base.howdy" %}!
                     <a href='{% url auth_login %}'>{% trans "base.login" %}</a>
                     {%  trans "or" %}
-                    <a href='{% url registration_register %}'>{% trans "base.register" %}</a>.
+                    <a href='{% url registration_register %}'>{% trans "base.register" %}</a>
                 {% endif %}
             </p>
         </div>
@@ -34,7 +35,7 @@
 
     <div id="footer">
         <div class="inside">
-            (cc) 2006-{% date.today().year %}
+            (cc) 2006-{{ current_year }}
             <a href="http://forgottenlabs.com" title="ForgottenLabs">ForgottenLabs.com</a>
 
             <p class="right">

@@ -1,5 +1,4 @@
 {% extends "base.dhtml" %}
-
 {% load i18n %}
 
 {% block content %}

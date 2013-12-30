@@ -1,9 +1,11 @@
 {% extends "base.dhtml" %}
+{% load i18n %}
 
 {% block title %}wylogowany{% endblock %}
-{% block content%}
-<div id="content" class="alignc">
-<h1>Wylogowanie zakończone sukcesem</h1>
-<span><a href="/">strona główna</a> | <a href="/login/">zaloguj ponownie</a></span>
-</div>
+{% block content %}
+    <div id="content" class="alignc">
+        <h1>{% trans "logout.success" %}</h1>
+        <span>{% trans "logout.redirecting" %}</span>
+        <meta http-equiv="REFRESH" content="2;url=/"/>
+    </div>
 {% endblock %}

@@ -9,7 +9,7 @@
             {% trans "single.removed" %}<br/>
             {% trans "single.redirecting" %}
         </div>
-        <meta http-equiv="REFRESH" content="2;url=/own/"></HEAD>
+        <meta http-equiv="REFRESH" content="2;url=/own/" />
     {% else %}
         <div class="bottom20px">
             <p class="left">

@@ -47,6 +47,14 @@ msgstr "Zaloguj się"
 msgid "base.register"
 msgstr "zarejestruj"
 
+# logout
+
+msgid "logout.success"
+msgstr "Wylogowałeś się."
+
+msgid "logout.redirecting"
+msgstr "Przekierowuję na stronę główną."
+
 # add pastie
 
 msgid "home.highlighting"
@@ -95,7 +103,7 @@ msgstr "Twoje wklejki"
 msgid "list.tagged"
 msgstr "Wklejki z tagiem"
 
-msgid "see_more"
+msgid "list.see_more"
 msgstr "Zobacz"
 
 msgid "list.delete"
@@ -141,7 +149,7 @@ msgid "static.terms_of_use"
 msgstr "regulamin"
 
 msgid "static.contact"
-msgstr "kontrakt"
+msgstr "kontakt"
 
 # error pages
 

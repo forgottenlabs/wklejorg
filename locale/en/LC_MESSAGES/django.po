@@ -47,6 +47,14 @@ msgstr "Sign in"
 msgid "base.register"
 msgstr "register"
 
+# logout
+
+msgid "logout.success"
+msgstr "You signed out."
+
+msgid "logout.redirecting"
+msgstr "Redirecting to homepage."
+
 # add pastie
 
 msgid "home.highlighting"
@@ -95,7 +103,7 @@ msgstr "Your pasties"
 msgid "list.tagged"
 msgstr "Pasties tagged as"
 
-msgid "see_more"
+msgid "list.see_more"
 msgstr "See more"
 
 msgid "list.delete"
