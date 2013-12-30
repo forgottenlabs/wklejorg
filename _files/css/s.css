@@ -179,7 +179,7 @@ a {
 .wklejcontent {
   overflow: auto; }
 
-textarea.body {
+textarea#id_body {
     box-sizing: border-box;
 }
 
