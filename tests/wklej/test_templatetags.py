@@ -1,4 +1,4 @@
-from wklej.templatetags.analytics import google_analytics_id
+from wklej.templatetags.helpers import google_analytics_id
 
 from django.conf import settings
 

@@ -1,54 +1,56 @@
-{% load i18n %}
-{% load analytics %}
-{% spaceless %}
-    <title>{% block title %}{% endblock %} – Wklej.org</title>
-    <link REL="SHORTCUT ICON" HREF="/f/img/favico.gif">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="/f/css/s.css" type="text/css" media="screen" charset="utf-8">
+{% load i18n helpers %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %} – Wklej.org</title>
+        <link REL="SHORTCUT ICON" HREF="/f/img/favico.gif" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="/f/css/s.css" type="text/css" media="screen" charset="utf-8" />
+    </head>
+    <body>
+        <div id="header">
+            <div class="inside">
+                <a href='/' class="title left"><img src="/f/img/logo.png"></a><a href='/'>{% trans "base.add_new" %}</a>
 
-    <div id="header">
-        <div class="inside">
-            <a href='/' class="title left"><img src="/f/img/logo.png"></a><a href='/'>{% trans "base.add_new" %}</a>
-
-            <p class="right">
-                {% if user.is_authenticated %}
-                    {% trans "base.howdy" %} <strong>{{ user }}</strong>! |
-                    <a href='{% url own %}'>{% trans "base.panel" %}</a> |
-                    <a href='{% url auth_logout %}'>{% trans "base.logout" %}</a>
-                {% else %}
-                    {% trans "base.howdy" %}!
-                    <a href='{% url auth_login %}'>{% trans "base.login" %}</a>
-                    {%  trans "or" %}
-                    <a href='{% url registration_register %}'>{% trans "base.register" %}</a>
-                {% endif %}
-            </p>
+                <p class="right">
+                    {% if user.is_authenticated %}
+                        {% trans "base.howdy" %} <strong>{{ user }}</strong>! |
+                        <a href='{% url own %}'>{% trans "base.panel" %}</a> |
+                        <a href='{% url auth_logout %}'>{% trans "base.logout" %}</a>
+                    {% else %}
+                        {% trans "base.howdy" %}!
+                        <a href='{% url auth_login %}'>{% trans "base.login" %}</a>
+                        {% trans "or" %}
+                        <a href='{% url registration_register %}'>{% trans "base.register" %}</a>
+                    {% endif %}
+                </p>
+            </div>
         </div>
-    </div>
 
-    <div id="center">
-        <div class="inside">
-{% endspaceless %}
-{% block content %}{% endblock %}
-{% spaceless %}
+        <div id="center">
+            <div class="inside">
+                {% block content %}{% endblock %}
+            </div>
         </div>
-    </div>
 
-    <div id="footer">
-        <div class="inside">
-            (cc) 2006-{{ current_year }}
-            <a href="http://forgottenlabs.com" title="ForgottenLabs">ForgottenLabs.com</a>
+        <div id="footer">
+            <div class="inside">
+                (cc) 2006-{{ current_year }}
+                <a href="http://forgottenlabs.com" title="ForgottenLabs">ForgottenLabs.com</a>
 
-            <p class="right">
-                <a href='/'>{% trans "homepage" %}</a> /
-                <a href='/api/'>{% trans "static.api" %}</a> /
-                <a href='/regulamin/'>{% trans "static.terms_of_use" %}</a> /
-                <a href='/kontakt/'>{% trans "static.contact" %}</a>
-            </p>
+                <p class="right">
+                    <a href='/'>{% trans "homepage" %}</a> /
+                    <a href='/api/'>{% trans "static.api" %}</a> /
+                    <a href='/regulamin/'>{% trans "static.terms_of_use" %}</a> /
+                    <a href='/kontakt/'>{% trans "static.contact" %}</a>
+                </p>
+            </div>
         </div>
-    </div>
-    {% if google_analytics_id %}
-        <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
-        <script type="text/javascript"> _uacct = "{% google_analytics_id %}"; urchinTracker(); </script>
-    {%  endif %}
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-{% endspaceless %}
+        {% if google_analytics_id %}
+            <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+            <script type="text/javascript"> _uacct = "{% google_analytics_id %}";
+            urchinTracker(); </script>
+        {% endif %}
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    </body>
+</html>
