@@ -123,8 +123,8 @@ msgstr "tags"
 
 # delete pastie
 
-msgid "delete.confirm %s"
-msgstr "Czy na pewno chcesz usunąć wklejkę %s?"
+msgid "delete.confirm"
+msgstr "Czy na pewno chcesz usunąć wklejkę"
 
 msgid "delete.yes"
 msgstr "Tak!"

@@ -126,7 +126,8 @@ a {
   #header a.title {
     margin-right: 30px;
     line-height: 60px;
-    padding: 5px 5px 20px; }
+    padding-left: 5px;
+    padding-right: 5px; }
 
 .inside {
   margin: 0 auto;
@@ -177,6 +178,10 @@ a {
 
 .wklejcontent {
   overflow: auto; }
+
+textarea.body {
+    box-sizing: border-box;
+}
 
 #footer {
   margin-top: 20px;

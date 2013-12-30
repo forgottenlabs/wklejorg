@@ -5,7 +5,7 @@
 
 {% block content %}
     <h1 class="alignc">
-        {% blocktrans %}delete.confirm {{ w.id }}{% endblocktrans %}
+        {% trans "delete.confirm" %} #{{ w.id }}?
     </h1>
     <form action="." method="post" accept-charset="utf-8" class="module top20px">
         <fieldset class="alignc">

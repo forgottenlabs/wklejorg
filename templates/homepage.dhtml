@@ -36,8 +36,7 @@
                 <label for="private" class="r">{% trans "home.private" %}</label>
             </p>
 
-            <textarea id="id_body" name="body" rows=15>
-                {% if source %}{{ w.body }}{% else %}{{ form.data.body }}{% endif %}</textarea>
+            <textarea id="id_body" name="body" rows="15">{% if source %}{{ w.body }}{% else %}{{ form.data.body }}{% endif %}</textarea>
 
             <p class="alignc">
                 <input type="submit" value="{% trans "home.submit" %}" id="submit">

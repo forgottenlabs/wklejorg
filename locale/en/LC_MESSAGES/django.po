@@ -123,8 +123,8 @@ msgstr "tags"
 
 # delete
 
-msgid "delete.confirm %s"
-msgstr "Are you sure you want to delete %s?"
+msgid "delete.confirm"
+msgstr "Are you sure you want to delete"
 
 msgid "delete.yes"
 msgstr "Yes!"
