@@ -23,7 +23,7 @@
 </div>
 <p>
 <a href="/salt/" class="metalink">{% trans "Wygeneruj klucz API" %}</a>
-<a href="{% url password_change %}" class="metalink odd">{% trans "Zmień hasło" %}</a>
+<a href="{% url "password_change" %}" class="metalink odd">{% trans "Zmień hasło" %}</a>
 </p>
 <div>
     <style type="text/css" media="screen">

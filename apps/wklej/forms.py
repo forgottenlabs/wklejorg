@@ -2,7 +2,7 @@
 
 from django import forms
 from wklej.models import Wklejka
-from wklejorg.lib.antispam import check_for_link_spam
+from lib.antispam import check_for_link_spam
 from recaptcha_app.fields import ReCaptchaField
 from wklej.models import LEXERS
 

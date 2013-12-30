@@ -11,9 +11,10 @@ MANAGERS = ADMINS
 
 ###############################################################################
 ###############################################################################
-ROOT_URLCONF = 'wklejorg.urls'
+ROOT_URLCONF = 'urls'
 TIME_ZONE = 'Europe/Warsaw'
 LANGUAGE_CODE = 'pl'
+ALLOWED_HOSTS = ["*"]
 
 SITE_ID = 1
 USE_I18N = True
