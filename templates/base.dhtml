@@ -5,12 +5,12 @@
         <title>{% block title %}{% endblock %} – Wklej.org</title>
         <link REL="SHORTCUT ICON" HREF="/f/img/favico.gif" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" href="/f/css/s.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="/f/css/s.css" type="text/css" media="screen" />
     </head>
     <body>
         <div id="header">
             <div class="inside">
-                <a href='/' class="title left"><img src="/f/img/logo.png"></a><a href='/'>{% trans "base.add_new" %}</a>
+                <a href='/' class="title left"><img src="/f/img/logo.png" alt="Wklej.org"></a><a href='/'>{% trans "base.add_new" %}</a>
 
                 <p class="right">
                     {% if user.is_authenticated %}
