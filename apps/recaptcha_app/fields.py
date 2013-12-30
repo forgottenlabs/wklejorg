@@ -13,7 +13,7 @@ from recaptcha.client import captcha
 
 class ReCaptchaField(forms.CharField):
     default_error_messages = {
-        'captcha_invalid': _(u'Invalid captcha')
+        'captcha_invalid': _(u'invalid_captcha')
     }
 
     def __init__(self, *args, **kwargs):

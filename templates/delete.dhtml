@@ -3,16 +3,15 @@
 {% block layout %}fixed{% endblock %}
 
 {% block content %}
-<h1 class="alignc">Czy na pewno chcesz usunąć wklejkę #{{ w.id }}?</h2>
-<form action="." method="post" accept-charset="utf-8" class="module top20px">
-    <fieldset class="alignc">
-        <input type="submit" class="yesbtn" name="yes" value="Tak!">
-        <input type="submit" class="nobtn" name="no" value="Nie.">
-    </fieldset>
-</form>
+    <h1 class="alignc">
+        {% blocktrans %}delete.confirm {{ w.id }}{% endblocktrans %}
+    </h1>
+    <form action="." method="post" accept-charset="utf-8" class="module top20px">
+        <fieldset class="alignc">
+            <input type="submit" class="yesbtn" name="yes" value="{% trans "delete.yes" %}" />
+            <input type="submit" class="nobtn" name="no" value="{% trans "delete.no" %}" />
+        </fieldset>
+    </form>
 {% endblock %}
 
 {% block powrotnagore %}  {% endblock %}
-
-
-

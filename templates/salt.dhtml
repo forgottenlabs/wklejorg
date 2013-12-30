@@ -3,20 +3,25 @@
 {% load i18n %}
 
 {% block content %}
-<style type="text/css">
-input { font-size: 30px; }
-h1.salt { color: #a34; }
-</style>
-<div id="content">
-{% if salt %}
-<p class="center2">{% trans "Oto twój nowy klucz:" %}</p>
-<h1 class="salt top20px">{{ salt }}</h2>
-{% endif %}{# salt #}
+    <style type="text/css">
+        input {
+            font-size: 30px;
+        }
 
-<form action="" method="POST" class="top20px">
-    <input type="submit" name="yes" value="{% trans "Wygeneruj nowy klucz." %}" />
-</form>
-</div>
+        h1.salt {
+            color: #a34;
+        }
+    </style>
+    <div id="content">
+        {% if salt %}
+            <p class="center2">{% trans "salt.new_key" %}</p>
+            <h1 class="salt top20px">{{ salt }}</h1>
+        {% endif %}
+
+        <form action="" method="POST" class="top20px">
+            <input type="submit" name="yes" value="{% trans "salt.generate" %}"/>
+        </form>
+    </div>
 {% endblock %}
 
 
