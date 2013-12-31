@@ -10,8 +10,6 @@
     <body>
         <div id="header">
             <div class="inside">
-                <a href='/' class="title left"><img src="/f/img/logo.png" alt="Wklej.org"></a><a href='/'>{% trans "base.add_new" %}</a>
-
                 <p class="right">
                     {% if user.is_authenticated %}
                         {% trans "base.howdy" %} <strong>{{ user }}</strong>! |
@@ -24,6 +22,8 @@
                         <a href='{% url registration_register %}'>{% trans "base.register" %}</a>
                     {% endif %}
                 </p>
+                
+                <a href='/' class="title left"><img src="/f/img/logo.png" alt="Wklej.org"></a><a href='/'>{% trans "base.add_new" %}</a>
             </div>
         </div>
 
