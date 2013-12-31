@@ -22,7 +22,7 @@
                         <a href='{% url registration_register %}'>{% trans "base.register" %}</a>
                     {% endif %}
                 </p>
-                
+
                 <a href='/' class="title left"><img src="/f/img/logo.png" alt="Wklej.org"></a><a href='/'>{% trans "base.add_new" %}</a>
             </div>
         </div>
@@ -35,15 +35,15 @@
 
         <div id="footer">
             <div class="inside">
-                (cc) 2006-{% current_year %}
-                <a href="http://forgottenlabs.com" title="ForgottenLabs">ForgottenLabs.com</a>
-
                 <p class="right">
                     <a href='/'>{% trans "homepage" %}</a> /
                     <a href='/api/'>{% trans "static.api" %}</a> /
                     <a href='/regulamin/'>{% trans "static.terms_of_use" %}</a> /
                     <a href='/kontakt/'>{% trans "static.contact" %}</a>
                 </p>
+
+                (cc) 2006-{% current_year %}
+                <a href="http://forgottenlabs.com" title="ForgottenLabs">ForgottenLabs.com</a>
             </div>
         </div>
         {% if google_analytics_id %}

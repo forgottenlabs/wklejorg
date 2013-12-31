@@ -188,7 +188,7 @@ textarea#id_body {
 
 #footer {
   margin-top: 20px;
-  margin-bottom: 100px; }
+  padding-bottom: 20px; }
 
 fieldset input[type=text], fieldset input[type=password] {
   border: 1px solid #ddd;

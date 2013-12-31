@@ -43,4 +43,22 @@
             </p>
         </form>
     </div>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function () {
+            var $window = $(window);
+            var $textarea = $('#id_body');
+            var resize = function () {
+                var freeSpace = $(window).height() - $('body').height();
+                var newHeight = $textarea.height() + freeSpace;
+                if (newHeight > 150) {
+                    $textarea.height(newHeight);
+                }
+            };
+
+            $window.resize(resize).resize();
+        });
+        //]]>
+    </script>
 {% endblock %}
