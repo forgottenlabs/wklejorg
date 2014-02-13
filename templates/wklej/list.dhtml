@@ -2,90 +2,102 @@
 {% load i18n %}
 
 {% load pagination_tags %}
-{% block title %}{% trans "Lista" %} {% if own %}{% trans "Twoich" %} {% endif %}{% trans "ostatnich wklejek" %}{% endblock %}
+{% block title %}{% trans "list.pasties" %}{% endblock %}
 
 {% block content %}
 
-<div>
-    {% if own %}
-    <div class="module">
-    </div>
-    <div class="clear"></div>
+    <div>
+        {% if own %}
+            <h1 class="g">{% trans "list.pasties" %}</h1>
+        {% endif %}
 
-    <h1 class="g">{% trans "Twoje najnowsze wklejki:" %}</h1>
-    {% endif %}
-
-    {% if tag %}
-    <h2 class="g">{% trans "Lista wklejek z tagiem" %} „{{ tag }}”</h2>
-    {% endif %}{# tag #}
-
-
-</div>
-<p>
-<a href="/salt/" class="metalink">{% trans "Wygeneruj klucz API" %}</a>
-<a href="{% url password_change %}" class="metalink odd">{% trans "Zmień hasło" %}</a>
-</p>
-<div>
-    <style type="text/css" media="screen">
-        .w-id { font-size: 12px; }
-        .g2 { color: #bbb; }
-        .c { color: green; }
-        .nodeco { text-decoration: none; border-bottom: 1px dotted #aaa; }
-    </style>
-
-    {% autopaginate qs 10 %}
-
-    <div class="top20px module alignr">
-        {% paginate %}
-    </div>
-
-
-    {% for w in qs %}
-    <div style="padding: 40px 0" class="{% cycle 'even' 'odd' %}">
-        <div class="left">
-            <h3><a class="nodeco" href="{{ w.get_absolute_url }}"><span class="c">#{{ w.id }}</span> <span class="g2">{{ w.pub_date|timesince }} {% trans "temu"%} </span></a></h3>
-            <p style="font-size: 12px; margin-top: 10px;">
-            {% trans "wkleił" %}:{% if w.user %}
-            <a href="#">{{ w.user }}</a>
-            {% else %}
-            {{ w.nickname }}
-            {% endif %}
-            {% trans "syntax" %}: <strong>{% firstof w.syntax w.guessed_syntax %}</strong>
-        </div>
-        <div class="module right">
-            <p>
-            {% spaceless %}
-            {% ifequal user w.user %}
-            {{ w.get_absolute_url }}
-            <a href="{{ w.get_absolute_url }}delete/" class="metalink red">{% trans "Usuń" %}</a>
-            {% endifequal %}
-            <a href="{{ w.get_absolute_url }}" class="metalink">{% trans "Zobacz" %}</a>
-            {% endspaceless %}
-            </p>
-        </div>
-        <div class="clear"></div>
-
-        {% load kolorki %}
-        <div class="wklejcontent">
-            {% autoescape off %}
-            {% code w.hl %}{{ w.body|slice:":500" }}{% endcode %}
-            {% endautoescape %}
-        </div>
-
-        {% if w.get_tags %}
-        <p class="right">{% trans "tagi" %}:
-        {% for tag in w.get_tags %}
-        <a href="/tag/{{ tag }}" rel='tag'>{{ tag }}</a>
-        {% endfor %}
-        </p>
+        {% if tag %}
+            <h2 class="g">{% trans "list.tagged" %} „{{ tag }}”</h2>
         {% endif %}
     </div>
-    {% endfor %}
 
-    <div class="top20px module alignr">
-        {% paginate %}
+    <p>
+        <a href="/salt/" class="metalink">{% trans "list.api_key" %}</a>
+        <a href="{% url password_change %}" class="metalink odd">{% trans "list.change_password" %}</a>
+    </p>
+
+    <div>
+        <style type="text/css" media="screen">
+            .w-id {
+                font-size: 12px;
+            }
+
+            .g2 {
+                color: #bbb;
+            }
+
+            .c {
+                color: green;
+            }
+
+            .nodeco {
+                text-decoration: none;
+                border-bottom: 1px dotted #aaa;
+            }
+        </style>
+
+        {% autopaginate qs 10 %}
+
+        <div class="top20px module alignr">
+            {% paginate %}
+        </div>
+
+        {% for w in qs %}
+            <div style="padding: 40px 0" class="{% cycle 'even' 'odd' %}">
+                <div class="left">
+                    <h3>
+                        <a class="nodeco" href="{{ w.get_absolute_url }}">
+                            <span class="c">#{{ w.id }}</span>
+                            <span class="g2">{{ w.pub_date|timesince }} {% trans "ago" %}</span>
+                        </a>
+                    </h3>
+
+                    <p style="font-size: 12px; margin-top: 10px;">
+                        {% trans "list.by" %}: <strong>{{ w.author }}</strong>
+                        {% trans "syntax" %}: <strong>{% firstof w.syntax w.guessed_syntax %}</strong>
+                    </p>
+                </div>
+
+                <div class="module right">
+                    <p>
+                        {% spaceless %}
+                            {% ifequal user w.user %}
+                                {{ w.get_absolute_url }}
+                                <a href="{{ w.get_absolute_url }}delete/"
+                                   class="metalink red">{% trans "list.delete" %}</a>
+                            {% endifequal %}
+                            <a href="{{ w.get_absolute_url }}" class="metalink">{% trans "list.see_more" %}</a>
+                        {% endspaceless %}
+                    </p>
+                </div>
+                <div class="clear"></div>
+
+                {% load kolorki %}
+                <div class="wklejcontent">
+                    {% autoescape off %}
+                        {% code w.hl %}{{ w.body|slice:":500" }}{% endcode %}
+                    {% endautoescape %}
+                </div>
+
+                {% if w.get_tags %}
+                    <p class="right">{% trans "tags" %}:
+                        {% for tag in w.get_tags %}
+                            <a href="/tag/{{ tag }}" rel='tag'>{{ tag }}</a>
+                        {% endfor %}
+                    </p>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <div class="top20px module alignr">
+            {% paginate %}
+        </div>
     </div>
-</div>
 {% endblock %}
 
 
