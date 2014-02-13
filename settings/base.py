@@ -13,6 +13,10 @@ MANAGERS = ADMINS
 ###############################################################################
 ROOT_URLCONF = 'wklejorg.urls'
 TIME_ZONE = 'Europe/Warsaw'
+LANGUAGES = [
+    ('en', 'English'),
+    ('pl', 'Polish'),
+]
 LANGUAGE_CODE = 'pl'
 
 SITE_ID = 1

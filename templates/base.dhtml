@@ -37,9 +37,15 @@
             <div class="inside">
                 <p class="right">
                     <a href='/'>{% trans "homepage" %}</a> /
-                    <a href='/api/'>{% trans "static.api" %}</a> /
+                    {% if LANGUAGE_CODE == 'pl' %}
                     <a href='/regulamin/'>{% trans "static.terms_of_use" %}</a> /
                     <a href='/kontakt/'>{% trans "static.contact" %}</a>
+                    {% endif %}
+
+                    {% if LANGUAGE_CODE == 'en' %}
+                    <a href='/terms-of-use/'>{% trans "static.terms_of_use" %}</a> /
+                    <a href='/contact/'>{% trans "static.contact" %}</a>
+                    {% endif %}{# LANGUAGE_CODE == 'en' #}
                 </p>
 
                 (cc) 2006-{% current_year %}

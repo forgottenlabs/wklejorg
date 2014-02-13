@@ -112,4 +112,21 @@ urlpatterns = patterns(
 
     ### SALT:
     url(r'^salt/$', 'wklej.views.salt', name="salt"),
+
+    ### Flatpages
+    url(r'^regulamin/$', 'django.views.generic.simple.direct_to_template', {
+        'template': 'flatpages/regulamin.html'
+        }),
+    url(r'^terms-of-use/$',
+        'django.views.generic.simple.direct_to_template', {
+            'template': 'flatpages/terms_of_service.html'
+        }),
+    url(r'^contact/$',
+        'django.views.generic.simple.direct_to_template', {
+            'template': 'flatpages/contact.html',
+        }),
+    url(r'^kontakt/$',
+        'django.views.generic.simple.direct_to_template', {
+            'template': 'flatpages/kontakt.html',
+        }),
 )
