@@ -6,20 +6,20 @@ from django.test import TestCase
 
 class WklejkaTestCase(TestCase):
 
-    def test_autor(self):
+    def test_author(self):
         user = User(username="joedoe")
         self.wklejka = Wklejka(
             user=user,
             nickname="Anonymous",
             body="Foobar",
         )
-        self.assertEqual(self.wklejka.autor, user)
+        self.assertEqual(self.wklejka.author, user)
 
         self.wklejka = Wklejka(
             nickname="Anonymous",
             body="Foobar",
         )
-        self.assertEqual(self.wklejka.autor, "Anonymous")
+        self.assertEqual(self.wklejka.author, "Anonymous")
 
     def test_get_id_url(self):
         w = Wklejka()
