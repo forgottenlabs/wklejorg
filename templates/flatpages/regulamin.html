@@ -1,0 +1,41 @@
+{% extends "base.dhtml" %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+{% block layout%}fixed{%endblock %}
+
+{% block content %}
+<style type="text/css">
+    ol li {
+        list-style-type: decimal; margin-left: 2em; line-height: 1.7em; 
+        font-size: 1.2em; margin-bottom: 1em;
+    }
+</style>
+<div class="module alignc">
+    <h1>Regulamin Serwisu</h1>
+</div>
+<div class="module top10px">
+    <ol>
+        <li>Korzystanie z serwisu wklej.org (zwany również Serwisem), oznacza
+        akceptację niniejszego regulaminu.</li>
+        <li>Wysłane teksty pozostają własnością ich twórców.</li>
+        <li>Wklej.org nie ponosi odpowiedzialności za treść przechowywanych
+        tekstów.</li>
+        <li>Zabrania się umieszczania tekstów zawierających treści niezgodne z
+        obowiązującym prawem, m.in o charakterze rasistowskim, wzywających do
+        nienawiści etnicznej, wyznaniowej, uznanych powszechnie za naganne
+        moralnie, społecznie niewłaściwe, pochwalających faszyzm, nazizm,
+        komunizm, propagujących przemoc, obrażających uczucia religijne,
+        naruszających prawa innych osób.</li>
+        <li>Użytkownik nie może zamieszczać w Serwisie tekstów, których nie
+        jest autorem, a co do których nie posiada zgody na ich publikacje.</li>
+        <li>Użytkownik ponosi pełną odpowiedzialność za naruszenie praw
+        autorskich osób trzecich.</li>
+        <li>Teksty, w stosunku do których zostanie zgłoszone nadużycie, będą
+        usuwane z Serwisu.</li>
+        <li>Wklej.org zastrzega sobie prawo do wprowadzania zmian w niniejszym
+        regulaminie, bez informowania o tym użytkowników.</li>
+    </ol>
+</div>
+{% endblock %}
+
