@@ -12,6 +12,7 @@ class WklejkaForm(forms.ModelForm):
 
     class Meta:
         model = Wklejka
+        fields = '__all__'
 
     def clean_nickname(self):
         if len(self.cleaned_data['nickname']) == 0:
@@ -35,6 +36,7 @@ class WklejkaCaptchaForm(forms.ModelForm):
 
     class Meta:
         model = Wklejka
+        fields = '__all__'
 
     def clean_nickname(self):
         if len(self.cleaned_data['nickname']) == 0:

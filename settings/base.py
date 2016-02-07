@@ -55,7 +55,7 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_DIRS = (
-    rel('../templates')
+    rel('../templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -100,13 +100,12 @@ INSTALLED_APPS = [
     'helpers',
     'userban',
     'registration',
-    'south',
     'pagination',
     'raven.contrib.django',
 
     # Project specific
-    'wklej',
-    'userstuff',
+    'apps.wklej',
+    'apps.userstuff',
 ]
 
 

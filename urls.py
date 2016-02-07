@@ -51,7 +51,7 @@ urlpatterns = patterns(
 
 
     ### list
-    url(r'^own/$', 'wklej.views.own', name="own"),
+    url(r'^own/$', 'apps.wklej.views.own', name="own"),
     #(r'^wklejki/$', 'wklej.views.wklejki'),
     #url(r'^tag/(?P<tag>\w+)/$', 'wklej.views.with_tag', name="with_tag"),
 
@@ -108,19 +108,8 @@ urlpatterns = patterns(
     url(r'^salt/$', 'wklej.views.salt', name="salt"),
 
     ### Flatpages
-    url(r'^regulamin/$', 'django.views.generic.simple.direct_to_template', {
-        'template': 'flatpages/regulamin.html'
-        }),
-    url(r'^terms-of-use/$',
-        'django.views.generic.simple.direct_to_template', {
-            'template': 'flatpages/terms_of_service.html'
-        }),
-    url(r'^contact/$',
-        'django.views.generic.simple.direct_to_template', {
-            'template': 'flatpages/contact.html',
-        }),
-    url(r'^kontakt/$',
-        'django.views.generic.simple.direct_to_template', {
-            'template': 'flatpages/kontakt.html',
-        }),
+    url(r'^regulamin/$', TemplateView.as_view(template_name='flatpages/regulamin.html')),
+    url(r'^terms-of-use/$', TemplateView.as_view(template_name='flatpages/terms_of_service.html')),
+    url(r'^contact/$', TemplateView.as_view(template_name='flatpages/contact.html')),
+    url(r'^kontakt/$', TemplateView.as_view(template_name='flatpages/kontakt.html')),
 )
