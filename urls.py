@@ -72,31 +72,31 @@ urlpatterns = patterns(
 
     url(r'^reset/$',
         'django.contrib.auth.views.password_reset',
-        {"template_name": 'registration/password_reset_form.dhtml'},
+        {"template_name": 'registration/password_reset_form.html'},
         name="password_reset"),
 
     url(r'^reset/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$',
         'django.contrib.auth.views.password_reset_confirm',
-        {'template_name': 'registration/password_reset_confirm.dhtml'},
+        {'template_name': 'registration/password_reset_confirm.html'},
         name="password_reset_confirm"),
 
     url(r'^reset/done/$',
         'django.contrib.auth.views.password_reset_done',
-        {"template_name": 'registration/password_reset_done.dhtml'},
+        {"template_name": 'registration/password_reset_done.html'},
         name="password_reset_done"),
 
     url(r'^reset/complete/$',
         'django.contrib.auth.views.password_reset_complete',
-        {"template_name": 'registration/password_reset_complete.dhtml'},
+        {"template_name": 'registration/password_reset_complete.html'},
         name="password_reset_complete"),
 
     url(r'^own/password/$', 'django.contrib.auth.views.password_change',
-        {"template_name": 'registration/password_change_form.dhtml'},
+        {"template_name": 'registration/password_change_form.html'},
         name="password_change"),
 
     url(r'^own/password/done/$',
         'django.contrib.auth.views.password_change_done',
-        {"template_name": 'registration/password_change_done.dhtml'},
+        {"template_name": 'registration/password_change_done.html'},
         name="password_change_done"),
 
 

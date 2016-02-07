@@ -28,7 +28,7 @@ def single(request, id=0, hash=''):
     syntaxform = RotateSyntaxForm(label_suffix='', initial={'hl': hl})
 
     return TemplateResponse(
-        request, "wklej/single.dhtml", {
+        request, "wklej/single.html", {
             'w': w,
             'hl': hl,
             'rsform': syntaxform
@@ -102,7 +102,7 @@ def re(request, id=0):
     form = WklejkaForm()
 
     return TemplateResponse(
-        request, "homepage.dhtml", {
+        request, "homepage.html", {
             'w': w,
             'form': form,
             'source': s,
@@ -122,7 +122,7 @@ def delete(request, id=0, hash=''):
     It's not idiot proof and far from perfect, but it's a lot better
     than just removing paste because someone just clicked on faked URL.
 
-    template: wklej/delete.dhtml
+    template: wklej/delete.html
     context: w - wklejka instance
     """
 
@@ -141,7 +141,7 @@ def delete(request, id=0, hash=''):
         return HttpResponseRedirect(w.get_absolute_url())
 
     return TemplateResponse(
-        request, "delete.dhtml", {'w': w}
+        request, "delete.html", {'w': w}
     )
 
 
@@ -155,7 +155,7 @@ def own(request):
     qs = request.user.wklejka_set.filter(is_deleted=False)
 
     return TemplateResponse(
-        request, "wklej/list.dhtml", {'qs': qs}
+        request, "wklej/list.html", {'qs': qs}
     )
 
 
@@ -175,7 +175,7 @@ def own(request):
     #return object_list(
         #request, queryset=queryset,
         #paginate_by=25,
-        #template_name="wklej/list.dhtml",
+        #template_name="wklej/list.html",
         #template_object_name="w",
     #)
 
@@ -191,9 +191,9 @@ def salt(request):
             new_salt = request.user.get_profile().generate_new_salt()
 
             return TemplateResponse(
-                request, "salt.dhtml", {
+                request, "salt.html", {
                     'salt': new_salt
                 },
             )
 
-    return TemplateResponse(request, "salt.dhtml")
+    return TemplateResponse(request, "salt.html")

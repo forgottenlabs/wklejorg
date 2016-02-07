@@ -18,7 +18,7 @@ class TestViews(TestCase):
         url = obj.get_absolute_url()
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, "wklej/single.dhtml")
+        self.assertTemplateUsed(response, "wklej/single.html")
 
     def get_txt(self, obj):
         url = obj.get_txt_url()
@@ -41,7 +41,7 @@ class TestViews(TestCase):
         url = obj.get_del_url()
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, "delete.dhtml")
+        self.assertTemplateUsed(response, "delete.html")
 
     def post_del(self, obj):
         self.client.login(username='joe', password='doe')
@@ -82,14 +82,14 @@ class TestViews(TestCase):
         url = reverse("reply", kwargs={"id": w.id})
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, "homepage.dhtml")
+        self.assertTemplateUsed(response, "homepage.html")
 
     def test_own(self):
         url = reverse("own")
         self.client.login(username='joe', password='doe')
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, "wklej/list.dhtml")
+        self.assertTemplateUsed(response, "wklej/list.html")
 
     def test_salt(self):
         userprofile = UserProfile(user=self.user)
@@ -101,7 +101,7 @@ class TestViews(TestCase):
 
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, "salt.dhtml")
+        self.assertTemplateUsed(response, "salt.html")
 
         response = self.client.post(url, {'yes': 'true'})
 

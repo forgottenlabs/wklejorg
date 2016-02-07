@@ -17,7 +17,7 @@ def homepage(request):
     """
 
     if not request.method == 'POST':
-        # if it's not a POST request, i just display pure homepage.dhtml
+        # if it's not a POST request, i just display pure homepage.html
         # with empty form. When user has cookie with previously used highlight
         # he recieves form with initial syntax
 
@@ -27,7 +27,7 @@ def homepage(request):
         else:
             form = WklejkaForm()
 
-        return TemplateResponse(request, 'homepage.dhtml', {'form': form})
+        return TemplateResponse(request, 'homepage.html', {'form': form})
 
     ### now i can focus on processing a POST request for new paste.
     try:
@@ -71,7 +71,7 @@ def homepage(request):
             form = WklejkaCaptchaForm(request.POST,
                                       initial={'has_captcha': '1'})
 
-            return TemplateResponse(request, "homepage.dhtml", {
+            return TemplateResponse(request, "homepage.html", {
                 'form': form,
                 'has_captcha': True,
                 'errormsg': "Wyglądasz jak spamer. Dla pewności wpisz captchę",
