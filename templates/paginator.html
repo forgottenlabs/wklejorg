@@ -24,7 +24,7 @@
 <div class="pager">
    {% if has_previous %}
       <span class="page">
-        <a href="?page={{ previous }}">← poprzednia</a>
+        <a href="?page={{ previous }}">← {% trans "prev" %}</a>
       </span>
    {% endif %}
    {% if show_first %}
@@ -45,7 +45,7 @@
        <span class="page"><a href="?page={{ last }}">{{ last }}</a></span>
    {% endif %}
    {% if has_next %}
-      <span class="page"><a href="?page={{ next }}">następna →</a></span>
+      <span class="page"><a href="?page={{ next }}">{% trans "next" %} →</a></span>
    {% endif %}
 </div>
 <div class="clear"></div>

@@ -1,248 +1,163 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-20 10:05+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: recaptcha_app/fields.py:15
-msgid "Invalid captcha"
-msgstr ""
+# common words
 
-#: templates/base.dhtml:16
-msgid "Witaj"
-msgstr ""
+msgid "homepage"
+msgstr "strona główna"
 
-#: templates/base.dhtml:17
-msgid "panel"
-msgstr ""
+msgid "pastie"
+msgstr "Wklejka"
 
-#: templates/base.dhtml:18
-msgid "wyloguj"
-msgstr ""
+msgid "ago"
+msgstr "temu"
 
-#: templates/base.dhtml:20
-msgid "zaloguj"
-msgstr ""
+msgid "or"
+msgstr "lub"
 
-#: templates/base.dhtml:21
-msgid "zarejestruj"
-msgstr ""
-
-#: templates/base.dhtml:22
-msgid "apocomikonto?"
-msgstr ""
-
-#: templates/base.dhtml:66
-msgid "powrót na górę ↑"
-msgstr ""
-
-#: templates/base.dhtml:73
-msgid "Ostatnio wklejone"
-msgstr ""
-
-#: templates/base.dhtml:78 templates/wklej/list.dhtml:66
-#: templates/wklej/single.dhtml:52 templates/wklej/single.dhtml.py:118
-msgid "temu"
-msgstr ""
-
-#: templates/base.dhtml:83
-msgid "więcej..."
-msgstr ""
-
-#: templates/base.dhtml:88
-msgid "Główna"
-msgstr ""
-
-#: templates/base.dhtml:89
-msgid "bugs"
-msgstr ""
-
-#: templates/base.dhtml:90
-msgid "skrypt"
-msgstr ""
-
-#: templates/base.dhtml:91
-msgid "extensions"
-msgstr ""
-
-#: templates/base.dhtml:92
-msgid "API"
-msgstr ""
-
-#: templates/base.dhtml:93
-msgid "reklama"
-msgstr ""
-
-#: templates/base.dhtml:94
-msgid "więcej…"
-msgstr ""
-
-#: templates/base.dhtml:96
-msgid "Czy wiesz, że…?"
-msgstr ""
-
-#: templates/homepage.dhtml:3
-msgid "Strona Główna"
-msgstr ""
-
-#: templates/homepage.dhtml:18
-msgid "Odpowiadasz na wklejkę "
-msgstr ""
-
-#: templates/homepage.dhtml:26
-msgid "Zalogowany jako"
-msgstr ""
-
-#: templates/homepage.dhtml:28
-msgid "Podpis:"
-msgstr ""
-
-#: templates/homepage.dhtml:31
-msgid "Syntax:"
-msgstr ""
-
-#: templates/homepage.dhtml:36
-msgid "Prywatna?"
-msgstr ""
-
-#: templates/homepage.dhtml:45
-msgid "Komentarz:"
-msgstr ""
-
-#: templates/homepage.dhtml:46
-msgid ""
-"W tym miejscu możesz napisać kilka słów od siebie na temat danej wklejki "
-"(opis problemu, użycia kodu, etc.)"
-msgstr ""
-
-#: templates/homepage.dhtml:50
-msgid "Tagi:"
-msgstr ""
-
-#: templates/homepage.dhtml:52
-msgid "tagi oddzielone spacją"
-msgstr ""
-
-#: templates/homepage.dhtml:54
-msgid "more ↓"
-msgstr ""
-
-#: templates/salt.dhtml:14
-msgid "Oto twój nowy klucz:"
-msgstr ""
-
-#: templates/salt.dhtml:19
-msgid "Wygeneruj nowy klucz."
-msgstr ""
-
-#: templates/wklej/list.dhtml:3
-msgid "Lista"
-msgstr ""
-
-#: templates/wklej/list.dhtml:3
-msgid "Twoich"
-msgstr ""
-
-#: templates/wklej/list.dhtml:3
-msgid "ostatnich wklejek"
-msgstr ""
-
-#: templates/wklej/list.dhtml:15
-msgid "Wygeneruj klucz API"
-msgstr ""
-
-#: templates/wklej/list.dhtml:16
-msgid "Zmień hasło"
-msgstr ""
-
-#: templates/wklej/list.dhtml:21
-msgid "Twoje najnowsze wklejki:"
-msgstr ""
-
-#: templates/wklej/list.dhtml:24
-msgid "Lista wklejek z tagiem"
-msgstr ""
-
-#: templates/wklej/list.dhtml:68
-msgid "wkleił"
-msgstr ""
-
-#: templates/wklej/list.dhtml:73
 msgid "syntax"
-msgstr ""
+msgstr "syntax"
 
-#: templates/wklej/list.dhtml:80 templates/wklej/single.dhtml:62
-msgid "Usuń"
-msgstr ""
+msgid "prev"
+msgstr "poprzednia"
 
-#: templates/wklej/list.dhtml:82
-msgid "Zobacz"
-msgstr ""
+msgid "next"
+msgstr "następna"
 
-#: templates/wklej/list.dhtml:93 templates/wklej/single.dhtml:126
-msgid "tagi"
-msgstr ""
+# base template
 
-#: templates/wklej/single.dhtml:14
-msgid " wklejka została usunięta"
-msgstr ""
+msgid "base.add_new"
+msgstr "Dodaj nową wklejkę +"
 
-#: templates/wklej/single.dhtml:14
-msgid "Przekierowuję do panelu"
-msgstr ""
+msgid "base.howdy"
+msgstr "Cześć"
 
-#: templates/wklej/single.dhtml:19
-msgid "To odpowiedź na wklejkę"
-msgstr ""
+msgid "base.panel"
+msgstr "Panel"
 
-#: templates/wklej/single.dhtml:51
-msgid "Wklejone przez "
-msgstr ""
+msgid "base.logout"
+msgstr "Wyloguj się"
 
-#: templates/wklej/single.dhtml:59
-msgid "Plaintext"
-msgstr ""
+msgid "base.login"
+msgstr "Zaloguj się"
 
-#: templates/wklej/single.dhtml:60
-msgid "Download"
-msgstr ""
+msgid "base.register"
+msgstr "zarejestruj"
 
-#: templates/wklej/single.dhtml:72
-msgid "Nie można dodawać odpowiedzi na prywatne wklejki"
-msgstr ""
+# logout
 
-#: templates/wklej/single.dhtml:74
-msgid "Odpowiedz"
-msgstr ""
+msgid "logout.success"
+msgstr "Wylogowałeś się."
 
-#: templates/wklej/single.dhtml:76
-msgid "Cytując treść"
-msgstr ""
+msgid "logout.redirecting"
+msgstr "Przekierowuję na stronę główną."
 
-#: templates/wklej/single.dhtml:77
-msgid "Wklejając nową"
-msgstr ""
+# add pastie
 
-#: templates/wklej/single.dhtml:79
-msgid "Odpowiedzi"
-msgstr ""
+msgid "home.highlighting"
+msgstr "Kolorowanie"
 
-#: templates/wklej/single.dhtml:90
-msgid "Komentarz autora:"
-msgstr ""
+msgid "home.private"
+msgstr "Prywatna?"
 
-#: templates/wklej/single.dhtml:118
-msgid "wklejone przez"
-msgstr ""
+msgid "home.submit"
+msgstr "Wklej +"
+
+msgid "home.replying_to"
+msgstr "Odpowiadasz na wklejkę"
+
+msgid "home.paste_blank"
+msgstr "Na pewno chcesz dodać pustą wklejkę?"
+
+msgid "home.invalid_captcha"
+msgstr "Nieprawidłowa CAPTCHA"
+
+# view pastie
+
+msgid "single.download"
+msgstr "Pobierz"
+
+msgid "single.plaintext"
+msgstr "Czysty tekst"
+
+msgid "single.reply"
+msgstr "Odpowiedz"
+
+msgid "single.moderate"
+msgstr "Moderuj"
+
+msgid "single.removed"
+msgstr "Wklejka została usunięta."
+
+msgid "single.redirecting"
+msgstr "Przekierowuję do panelu."
+
+# list of pasties
+
+msgid "list.pasties"
+msgstr "Twoje wklejki"
+
+msgid "list.tagged"
+msgstr "Wklejki z tagiem"
+
+msgid "list.see_more"
+msgstr "Zobacz"
+
+msgid "list.delete"
+msgstr "Usuń"
+
+msgid "list.api_key"
+msgstr "Wygeneruj klucz API"
+
+msgid "list.change_password"
+msgstr "Zmień hasło"
+
+msgid "list.by"
+msgstr "wkleił"
+
+msgid "list.tags"
+msgstr "tags"
+
+# delete pastie
+
+msgid "delete.confirm"
+msgstr "Czy na pewno chcesz usunąć wklejkę"
+
+msgid "delete.yes"
+msgstr "Tak!"
+
+msgid "delete.no"
+msgstr "Nie"
+
+# api
+
+msgid "salt.generate"
+msgstr "Wygeneruj nowy klucz API:"
+
+msgid "salt.new_key"
+msgstr "Twój nowy klucz API to:"
+
+# static pages
+
+msgid "static.api"
+msgstr "API"
+
+msgid "static.terms_of_use"
+msgstr "regulamin"
+
+msgid "static.contact"
+msgstr "kontakt"
+
+# error pages
+
+msgid "403.forbidden"
+msgstr "Sorry. Nie masz uprawnień do oglądania tej wklejki."
+
+msgid "404.title"
+msgstr "Za każdym razem jak dostaniesz 404 ktoś dodaje nową wklejkę!"
+
+msgid "500.title"
+msgstr "coś poszło nie tak :("

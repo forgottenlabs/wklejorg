@@ -69,11 +69,19 @@ class Wklejka(models.Model):
         db_table = 'wklej_wklejka'
 
     def __unicode__(self):
-        return "%s at %s" % (self.autor, str(self.pub_date))
+        return "%s at %s" % (self.author, str(self.pub_date))
 
     @property
-    def autor(self):
+    def author(self):
         return self.user if self.user else self.nickname
+
+    @property
+    def is_public(self):
+        return not self.is_private
+
+    @property
+    def hl(self):
+        return self.syntax or self.guessed_syntax
 
     def get_absolute_url(self):
         if self.is_private:
@@ -120,6 +128,3 @@ class Wklejka(models.Model):
     def get_10_lines(self):
         return "\n".join(self.body.splitlines()[:10])
 
-    @property
-    def hl(self):
-        return (self.syntax or self.guessed_syntax)

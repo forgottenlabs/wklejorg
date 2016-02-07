@@ -13,6 +13,10 @@ MANAGERS = ADMINS
 ###############################################################################
 ROOT_URLCONF = 'wklejorg.urls'
 TIME_ZONE = 'Europe/Warsaw'
+LANGUAGES = [
+    ('en', 'English'),
+    ('pl', 'Polish'),
+]
 LANGUAGE_CODE = 'pl'
 
 SITE_ID = 1
@@ -38,6 +42,9 @@ MEDIA_URL = ''
 STATIC_ROOT = rel('../_static')
 STATIC_URL = '/static/'
 LOCALE_PATHS = [rel('../locale')]
+
+USE_SSL = False
+USE_CAPTCHA = True
 
 ###############################################################################
 ###############################################################################

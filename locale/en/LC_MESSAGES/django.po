@@ -1,268 +1,163 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-20 11:02+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: recaptcha_app/fields.py:15
-msgid "Invalid captcha"
-msgstr ""
+# common words
 
-#: templates/base.dhtml:16
-msgid "Witaj"
-msgstr "Welcome"
+msgid "homepage"
+msgstr "homepage"
 
-#: templates/base.dhtml:17
-msgid "panel"
-msgstr ""
+msgid "pastie"
+msgstr "Pastie"
 
-#: templates/base.dhtml:18
-msgid "wyloguj"
-msgstr "logout"
-
-#: templates/base.dhtml:20
-msgid "zaloguj"
-msgstr "login"
-
-#: templates/base.dhtml:21
-msgid "zarejestruj"
-msgstr "signup"
-
-#: templates/base.dhtml:22
-msgid "apocomikonto?"
-msgstr "whydoineedaccount?"
-
-#: templates/base.dhtml:46
-msgid "Chciałbyś zobaczyć tutaj swoje logo?"
-msgstr "Would you like to see your logo here?"
-
-#: templates/base.dhtml:74
-msgid "powrót na górę ↑"
-msgstr "back to top ↑"
-
-#: templates/base.dhtml:81
-msgid "Ostatnio wklejone"
-msgstr "Latest"
-
-#: templates/base.dhtml:86 templates/wklej/list.dhtml:66
-#: templates/wklej/single.dhtml:52 templates/wklej/single.dhtml.py:118
-msgid "temu"
+msgid "ago"
 msgstr "ago"
 
-#: templates/base.dhtml:91
-msgid "więcej..."
-msgstr "more…"
+msgid "or"
+msgstr "or"
 
-#: templates/base.dhtml:96
-msgid "Główna"
-msgstr "Homepage"
+msgid "syntax"
+msgstr "syntax"
 
-#: templates/base.dhtml:97
-msgid "bugs"
-msgstr ""
+msgid "prev"
+msgstr "previous"
 
-#: templates/base.dhtml:98
-msgid "skrypt"
-msgstr "script"
+msgid "next"
+msgstr "next"
 
-#: templates/base.dhtml:99
-msgid "extensions"
-msgstr ""
+# base template
 
-#: templates/base.dhtml:100
-msgid "API"
-msgstr ""
+msgid "base.add_new"
+msgstr "Add new pastie +"
 
-#: templates/base.dhtml:101
-msgid "reklama"
-msgstr "advertise"
+msgid "base.howdy"
+msgstr "Howdy"
 
-#: templates/base.dhtml:102
-msgid "więcej…"
-msgstr "more…"
+msgid "base.panel"
+msgstr "Panel"
 
-#: templates/base.dhtml:104
-msgid "Czy wiesz, że…?"
-msgstr "Did you know, that…?"
+msgid "base.logout"
+msgstr "Log out"
 
-#: templates/base.dhtml:106
-msgid ""
-"<a class='r' href='http://wklej.org'>wklej.org</a> jest stroną typu <a "
-"style='color:#fff;' href='http://pl.wikipedia.org/wiki/NoPaste'>NoPaste</a> "
-"umożliwiającą wklejanie na nią dowolnego tekstu, lub kodu programu, który "
-"staje się dostępny pod specjalnym linkiem. Dzięki temu można zwiększyć "
-"przejrzystość kanałów IRC bądź for internetowych gdyż zamiast wielu lini "
-"tekstu podajemy tam jeden link.</p>"
-msgstr ""
-"<a class='r' href='http://wklej.org'>wklej.org</a> it's a "
-"<a href='http://en.wikipedia.org/wiki/NoPaste'>NoPaste</a>"
-" site, which allows you to paste here any text, or source code, which will be"
-" available under special URL. Thanks to this, you can make forums or IRC channels more readable"
+msgid "base.login"
+msgstr "Sign in"
 
-#: templates/homepage.dhtml:5
-msgid "Strona Główna"
-msgstr "Homepage"
+msgid "base.register"
+msgstr "register"
 
-#: templates/homepage.dhtml:20
-msgid "Odpowiadasz na wklejkę "
-msgstr "You're responding for "
+# logout
 
-#: templates/homepage.dhtml:29
-msgid "Zalogowany jako"
-msgstr "Authenticated as"
+msgid "logout.success"
+msgstr "You signed out."
 
-#: templates/homepage.dhtml:31
-msgid "Podpis:"
-msgstr "Name"
+msgid "logout.redirecting"
+msgstr "Redirecting to homepage."
 
-#: templates/homepage.dhtml:34
-msgid "Syntax:"
-msgstr ""
+# add pastie
 
-#: templates/homepage.dhtml:40
-msgid "Prywatna?"
+msgid "home.highlighting"
+msgstr "Highlighting"
+
+msgid "home.private"
 msgstr "Private?"
 
-#: templates/homepage.dhtml:49
-msgid "Komentarz:"
-msgstr "Comment"
+msgid "home.submit"
+msgstr "Paste +"
 
-#: templates/homepage.dhtml:50
-msgid ""
-"W tym miejscu możesz napisać kilka słów od siebie na temat danej wklejki "
-"(opis problemu, użycia kodu, etc.)"
-msgstr ""
-"You can write here a few words about this paste. Problem's plot or info how "
-"to use the snippet"
+msgid "home.replying_to"
+msgstr "You're responding to"
 
-#: templates/homepage.dhtml:54
-msgid "Tagi:"
-msgstr "Tags:"
+msgid "home.paste_blank"
+msgstr "Do you really want to add an empty pastie?"
 
-#: templates/homepage.dhtml:56
-msgid "tagi oddzielone spacją"
-msgstr "space separated"
+msgid "home.invalid_captcha"
+msgstr "Invalid CAPTCHA"
 
-#: templates/homepage.dhtml:58
-msgid "more ↓"
-msgstr ""
+# view pastie
 
-#: templates/salt.dhtml:14
-msgid "Oto twój nowy klucz:"
-msgstr "Your new API key:"
+msgid "single.download"
+msgstr "Download"
 
-#: templates/salt.dhtml:19
-msgid "Wygeneruj nowy klucz."
-msgstr "Generate new API key:"
+msgid "single.plaintext"
+msgstr "Plain text"
 
-#: templates/wklej/list.dhtml:4
-msgid "Lista"
-msgstr "List"
+msgid "single.reply"
+msgstr "Reply"
 
-#: templates/wklej/list.dhtml:4
-msgid "Twoich"
-msgstr "yours"
+msgid "single.moderate"
+msgstr "Moderate"
 
-#: templates/wklej/list.dhtml:4
-msgid "ostatnich wklejek"
-msgstr "latest pastes"
+msgid "single.removed"
+msgstr "Pastie has been removed."
 
-#: templates/wklej/list.dhtml:15
-msgid "Wygeneruj klucz API"
-msgstr "Generate API key"
+msgid "single.redirecting"
+msgstr "Redirecting to the panel."
 
-#: templates/wklej/list.dhtml:16
-msgid "Zmień hasło"
-msgstr "Change password"
+# list of pasties
 
-#: templates/wklej/list.dhtml:21
-msgid "Twoje najnowsze wklejki:"
-msgstr "Your latest pastes:"
+msgid "list.pasties"
+msgstr "Your pasties"
 
-#: templates/wklej/list.dhtml:24
-msgid "Lista wklejek z tagiem"
-msgstr "List of pastes with tag"
+msgid "list.tagged"
+msgstr "Pasties tagged as"
 
-#: templates/wklej/list.dhtml:68
-msgid "wkleił"
-msgstr "submited by"
-
-#: templates/wklej/list.dhtml:73
-msgid "syntax"
-msgstr ""
-
-#: templates/wklej/list.dhtml:80 templates/wklej/single.dhtml:62
-msgid "Usuń"
-msgstr "Delete"
-
-#: templates/wklej/list.dhtml:82
-msgid "Zobacz"
+msgid "list.see_more"
 msgstr "See more"
 
-#: templates/wklej/list.dhtml:93 templates/wklej/single.dhtml:126
-msgid "tagi"
+msgid "list.delete"
+msgstr "Delete"
+
+msgid "list.api_key"
+msgstr "Generate API key"
+
+msgid "list.change_password"
+msgstr "Change password"
+
+msgid "list.by"
+msgstr "pasted by"
+
+msgid "list.tags"
 msgstr "tags"
 
-#: templates/wklej/single.dhtml:14
-msgid " wklejka została usunięta"
-msgstr " paste has been deleted"
+# delete
 
-#: templates/wklej/single.dhtml:14
-msgid "Przekierowuję do panelu"
-msgstr "Redirecting to panel"
+msgid "delete.confirm"
+msgstr "Are you sure you want to delete"
 
-#: templates/wklej/single.dhtml:19
-msgid "To odpowiedź na wklejkę"
-msgstr "It is response for"
+msgid "delete.yes"
+msgstr "Yes!"
 
-#: templates/wklej/single.dhtml:51
-msgid "Wklejone przez "
-msgstr "submitted by"
+msgid "delete.no"
+msgstr "No"
 
-#: templates/wklej/single.dhtml:59
-msgid "Plaintext"
-msgstr ""
+# api
 
-#: templates/wklej/single.dhtml:60
-msgid "Download"
-msgstr ""
+msgid "salt.generate"
+msgstr "Generate new API key:"
 
-#: templates/wklej/single.dhtml:72
-msgid "Nie można dodawać odpowiedzi na prywatne wklejki"
-msgstr "You cannot respond to private pastes"
+msgid "salt.new_key"
+msgstr "Your new API key:"
 
-#: templates/wklej/single.dhtml:74
-msgid "Odpowiedz"
-msgstr "Respond with"
+# static pages
 
-#: templates/wklej/single.dhtml:76
-msgid "Cytując treść"
-msgstr "Original text"
+msgid "static.api"
+msgstr "API"
 
-#: templates/wklej/single.dhtml:77
-msgid "Wklejając nową"
-msgstr "New paste"
+msgid "static.terms_of_use"
+msgstr "terms of use"
 
-#: templates/wklej/single.dhtml:79
-msgid "Odpowiedzi"
-msgstr "Responses"
+msgid "static.contact"
+msgstr "contact"
 
-#: templates/wklej/single.dhtml:90
-msgid "Komentarz autora:"
-msgstr "Authors comment:"
+# error pages
 
-#: templates/wklej/single.dhtml:118
-msgid "wklejone przez"
-msgstr "submitted by"
+msgid "403.forbidden"
+msgstr "Sorry. You can't view this pastie."
+
+msgid "404.title"
+msgstr "The dogs may bark, but the pasties move on!"
+
+msgid "500.title"
+msgstr "something went terribly wrong :("
