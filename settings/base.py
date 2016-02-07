@@ -13,6 +13,10 @@ MANAGERS = ADMINS
 ###############################################################################
 ROOT_URLCONF = 'urls'
 TIME_ZONE = 'Europe/Warsaw'
+LANGUAGES = [
+    ('en', 'English'),
+    ('pl', 'Polish'),
+]
 LANGUAGE_CODE = 'pl'
 ALLOWED_HOSTS = ["*"]
 
@@ -39,6 +43,9 @@ MEDIA_URL = ''
 STATIC_ROOT = rel('../_static')
 STATIC_URL = '/static/'
 LOCALE_PATHS = [rel('../locale')]
+
+USE_SSL = False
+USE_CAPTCHA = True
 
 ###############################################################################
 ###############################################################################

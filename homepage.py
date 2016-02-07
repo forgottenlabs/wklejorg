@@ -1,6 +1,7 @@
 #-*- coding: utf-8 -*-
 
 from django.http import HttpResponseRedirect
+from django.conf import settings
 from django.template.response import TemplateResponse
 from pygments.lexers import guess_lexer
 from wklej.forms import WklejkaForm, WklejkaCaptchaForm
@@ -30,7 +31,7 @@ def homepage(request):
 
     ### now i can focus on processing a POST request for new paste.
     try:
-        if request.POST.get('has_captcha', ''):
+        if request.POST.get('has_captcha', '') and settings.USE_CAPTCHA:
             form = WklejkaCaptchaForm(request.POST)
         else:
             form = WklejkaForm(request.POST)

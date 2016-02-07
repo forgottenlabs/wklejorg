@@ -1,7 +1,9 @@
-/*  
+@charset "UTF-8";
+/*
 Author: Artur Czepiel
 Author URI: http://artur.cc
- */
+*/
+
 /* RESET */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
   margin: 0;
@@ -126,7 +128,8 @@ a {
   #header a.title {
     margin-right: 30px;
     line-height: 60px;
-    padding: 5px 5px 20px; }
+    padding-left: 5px;
+    padding-right: 5px; }
 
 .inside {
   margin: 0 auto;
@@ -178,9 +181,14 @@ a {
 .wklejcontent {
   overflow: auto; }
 
+textarea#id_body {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
 #footer {
   margin-top: 20px;
-  margin-bottom: 100px; }
+  padding-bottom: 20px; }
 
 fieldset input[type=text], fieldset input[type=password] {
   border: 1px solid #ddd;

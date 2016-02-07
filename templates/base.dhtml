@@ -1,43 +1,60 @@
-{% load analytics %}
-{% spaceless %}
-<title>{% block title %}{% endblock %} – Wklej.org</title>
-<meta name="google-site-verification" content="pRGypfRwZ9BqcuJjWEFD8jlmS3WtKGT0v9tWuzUcNEQ" />
-<link REL="SHORTCUT ICON" HREF="/f/img/favico.gif">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/f/css/s.css" type="text/css" media="screen" charset="utf-8">
+{% load i18n helpers %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %} – Wklej.org</title>
+        <link REL="SHORTCUT ICON" HREF="/f/img/favico.gif" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="/f/css/s.css" type="text/css" media="screen" />
+    </head>
+    <body>
+        <div id="header">
+            <div class="inside">
+                <p class="right">
+                    {% if user.is_authenticated %}
+                        {% trans "base.howdy" %} <strong>{{ user }}</strong>! |
+                        <a href='{% url own %}'>{% trans "base.panel" %}</a> |
+                        <a href='{% url auth_logout %}'>{% trans "base.logout" %}</a>
+                    {% else %}
+                        {% trans "base.howdy" %}!
+                        <a href='{% url auth_login %}'>{% trans "base.login" %}</a>
+                        {% trans "or" %}
+                        <a href='{% url registration_register %}'>{% trans "base.register" %}</a>
+                    {% endif %}
+                </p>
 
-<div id="header">
-    <div class="inside">
-        <a href='/' class="title left"><img src=/f/img/logo.png></a><a href='/'>Dodaj nową wklejkę +</a>
-        <p class="right">
-        {% if user.is_authenticated %}
-        Zalogowany jako <strong>{{ user }}</strong>  | <a href='{% url "own" %}'>Panel</a> | <a href='{% url "auth_logout" %}'>Wyloguj</a>
-        {% else %}
-        Cześć. <a href='{% url "auth_login" %}'>zaloguj się</a> lub <a href='{% url "registration_register" %}'>zarejestruj</a>
+                <a href='/' class="title left"><img src="/f/img/logo.png" alt="Wklej.org"></a><a href='/'>{% trans "base.add_new" %}</a>
+            </div>
+        </div>
+
+        <div id="center">
+            <div class="inside">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="inside">
+                <p class="right">
+                    <a href='/'>{% trans "homepage" %}</a> /
+                    {% if LANGUAGE_CODE == 'pl' %}
+                    <a href='/regulamin/'>{% trans "static.terms_of_use" %}</a> /
+                    <a href='/kontakt/'>{% trans "static.contact" %}</a>
+                    {% endif %}
+
+                    {% if LANGUAGE_CODE == 'en' %}
+                    <a href='/terms-of-use/'>{% trans "static.terms_of_use" %}</a> /
+                    <a href='/contact/'>{% trans "static.contact" %}</a>
+                    {% endif %}{# LANGUAGE_CODE == 'en' #}
+                </p>
+
+                (cc) 2006-{% current_year %}
+                <a href="http://forgottenlabs.com" title="ForgottenLabs">ForgottenLabs.com</a>
+            </div>
+        </div>
+        {% if google_analytics_id %}
+            <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+            <script type="text/javascript"> _uacct = "{% google_analytics_id %}"; urchinTracker(); </script>
         {% endif %}
-        </p>
-    </div>
-</div>
-
-<div id="center">
-    <div class="inside">
-        {% endspaceless %}
-        {% block content %}{% endblock %}
-        {% spaceless %}
-    </div>
-</div>
-
-<div id="footer">
-    <div class="inside">
-        (cc) 2006-2013  <a href='http://forgottenlabs.com' title="ForgottenLabs">ForgottenLabs.com</a>
-        <p class="right">
-        <a href='/'>strona główna</a> /
-        <a href='/api/'>API</a> /
-        <a href='/regulamin/'>regulamin</a> /
-        <a href='/kontakt/'>kontakt</a>
-    </div>
-</div>
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"> </script>
-<script type="text/javascript"> _uacct = "{% google_analytics_id %}"; urchinTracker(); </script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-{% endspaceless %}
+    </body>
+</html>

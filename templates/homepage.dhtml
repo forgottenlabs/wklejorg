@@ -1,51 +1,65 @@
 {% extends "base.dhtml" %}
-
 {% load i18n %}
 
-{% block title %}{% trans "Strona Główna" %}{% endblock %}
+{% block title %}{% trans "homepage" %}{% endblock %}
 
 {% block content %}
-<div class="module">
-    <form action="/" method="post" accept-charset="utf-8">
-        {% csrf_token %}
+    <div class="module">
+        <form action="/" method="post" accept-charset="utf-8">
+            {% csrf_token %}
 
-        {% if form.errors %}
-        {# form.errors #}
-        <div class="error">{% firstof errormsg "Na pewno chcesz dodać pustą wklejkę?" %}</div>
-        {% endif %}
+            {% if form.errors %}
+                <div class="error">{% firstof errormsg "home.paste_blank" %}</div>
+            {% endif %}
 
+            {% if w %}
+                <div class="info">
+                    {% trans "home.replying_to" %}
+                    <a href="{{ w.get_absolute_url }}">#{{ w.id }}</a>
+                    <input type="hidden" name="parent" value="{{ w.id }}">
+                </div>
+            {% endif %}
 
-        {% if w %}
-        <div class="info">{% trans "Odpowiadasz na wklejkę " %}<a href="{{ w.get_absolute_url }}">#{{ w.id }}</a></div>
-        {% endif %}
+            {% if form.recaptcha %}
+                <div id="captcha">
+                    {{ form.recaptcha }}
+                    <input type="hidden" name="has_captcha" value="1">
+                </div>
+            {% endif %}
 
-        {% if form.recaptcha %}
-        <div id="captcha">
-            {{ form.recaptcha }}
-            <input type="hidden" name="has_captcha" value="1">
-        </div>
-        {% endif %}
+            <label for="id_syntax">{% trans "home.highlighting" %}:</label>
+            {{ form.syntax }}
 
-        <label for="id_syntax">{% trans "Kolorowanie:" %}</label>
-        {{ form.syntax }}
+            <p class="right">
+                <input type="checkbox" name="is_private" {% if form.data.is_private %}checked="checked"{% endif %}
+                       id="private">
+                <label for="private" class="r">{% trans "home.private" %}</label>
+            </p>
 
-        <p class="right">
-        <input type="checkbox" name="is_private" {% if form.data.is_private %}checked="checked"{% endif %} id="private">
-        <label for="private" class="r">{% trans "Prywatna?" %}</label>
-        </p>
+            <textarea id="id_body" name="body" rows="15">{% if source %}{{ w.body }}{% else %}{{ form.data.body }}{% endif %}</textarea>
 
-        {# for responses: #}
-        {% if w %}
-        <input type="hidden" name="parent" value="{{ w.id }}">
-        {% endif %}
+            <p class="alignc">
+                <input type="submit" value="{% trans "home.submit" %}" id="submit">
+            </p>
+        </form>
+    </div>
 
-        <textarea id="id_body" name="body" rows=15>{% if source %}{{ w.body }}{% else %}{{ form.data.body }}{% endif %}</textarea>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function () {
+            var $window = $(window);
+            var $textarea = $('#id_body');
+            var resize = function () {
+                var freeSpace = $(window).height() - $('body').height();
+                var newHeight = $textarea.height() + freeSpace;
+                if (newHeight > 150) {
+                    $textarea.height(newHeight);
+                }
+            };
 
-        <p class="alignc">
-        <input type="submit" value="Wklej +" id='submit'>
-        </p>
-    </form>
-
-
-</div>
+            $window.resize(resize).resize();
+        });
+        //]]>
+    </script>
 {% endblock %}
