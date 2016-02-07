@@ -77,7 +77,6 @@ MIDDLEWARE_CLASSES = (
     'userban.middleware.BlockedIpMiddleware',
     'pagination.middleware.PaginationMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'raven.contrib.django.middleware.Sentry404CatchMiddleware',
 )
@@ -96,7 +95,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd party
-    'django_extensions',
     'helpers',
     'userban',
     'registration',
