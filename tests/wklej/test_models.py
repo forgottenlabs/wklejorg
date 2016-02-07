@@ -1,4 +1,4 @@
-from wklej.models import Wklejka
+from apps.wklej.models import Wklejka
 from django.contrib.auth.models import User
 
 from django.test import TestCase

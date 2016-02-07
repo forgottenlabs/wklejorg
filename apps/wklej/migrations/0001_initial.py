@@ -1,7 +1,7 @@
 
 from south.db import db
 from django.db import models
-from wklej.models import *
+from apps.wklej.models import *
 
 class Migration:
     

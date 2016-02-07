@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.conf import settings
 from django.template.response import TemplateResponse
 from pygments.lexers import guess_lexer
-from wklej.forms import WklejkaForm, WklejkaCaptchaForm
+from apps.wklej.forms import WklejkaForm, WklejkaCaptchaForm
 import hashlib
 import random
 

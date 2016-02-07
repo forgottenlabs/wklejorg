@@ -3,8 +3,8 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
-from wklej.models import Wklejka
-from userstuff.models import UserProfile
+from apps.wklej.models import Wklejka
+from apps.userstuff.models import UserProfile
 
 
 class TestViews(TestCase):

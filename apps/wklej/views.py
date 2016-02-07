@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404
 from django.template.response import TemplateResponse
 from wklej.forms import RotateSyntaxForm
 from wklej.forms import WklejkaForm
-from wklej.models import Wklejka, BANNED_LEXERS
+from apps.wklej.models import Wklejka, BANNED_LEXERS
 
 
 def single(request, id=0, hash=''):

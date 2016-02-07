@@ -1,10 +1,10 @@
 #-*- coding: utf-8 -*-
 
 from django import forms
-from wklej.models import Wklejka
+from apps.wklej.models import Wklejka
 from lib.antispam import check_for_link_spam
 from recaptcha_app.fields import ReCaptchaField
-from wklej.models import LEXERS
+from apps.wklej.models import LEXERS
 
 
 class WklejkaForm(forms.ModelForm):

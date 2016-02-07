@@ -1,6 +1,6 @@
 #coding: utf-8
 
-from wklej.models import Wklejka
+from apps.wklej.models import Wklejka
 from django.contrib import admin
 
 

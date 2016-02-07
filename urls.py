@@ -6,8 +6,8 @@ from registration.views import RegistrationView
 
 admin.autodiscover()
 
-from userstuff.models import UserProfile
-from wklej.xmlrpc import rpc_handler
+from apps.userstuff.models import UserProfile
+from apps.wklej.xmlrpc import rpc_handler
 
 
 ###############################################################################
