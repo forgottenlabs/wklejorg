@@ -60,7 +60,7 @@ urlpatterns = patterns(
         {'profile_callback': UserProfile.objects.create},
         name='registration_register'),
 
-    url(r'^accounts/', include('registration.urls')),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
     ### bunch of redirects
     url(r'^accounts/profile/$', RedirectView.as_view(url='/')),
