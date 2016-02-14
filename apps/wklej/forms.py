@@ -6,6 +6,8 @@ from wklejorg.lib.antispam import check_for_link_spam
 from recaptcha_app.fields import ReCaptchaField
 from wklej.models import LEXERS
 
+from django.conf import settings
+
 
 class WklejkaForm(forms.ModelForm):
     nickname = forms.CharField(required=False)
@@ -22,7 +24,7 @@ class WklejkaForm(forms.ModelForm):
         return self.cleaned_data['nickname']
 
     def clean_body(self):
-        if check_for_link_spam(self.cleaned_data['body']):
+        if settings.USE_CAPTCHA and check_for_link_spam(self.cleaned_data['body']):
             raise forms.ValidationError("This paste looks like spam.")
         return self.cleaned_data['body']
 
