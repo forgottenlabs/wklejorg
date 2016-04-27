@@ -1,4 +1,4 @@
-{% extends "base.dhtml" %}
+{% extends "base.html" %}
 {% load i18n %}
 
 {% load pagination_tags %}
@@ -18,7 +18,7 @@
 
     <p>
         <a href="/salt/" class="metalink">{% trans "list.api_key" %}</a>
-        <a href="{% url password_change %}" class="metalink odd">{% trans "list.change_password" %}</a>
+        <a href="{% url "password_change" %}" class="metalink odd">{% trans "list.change_password" %}</a>
     </p>
 
     <div>

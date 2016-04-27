@@ -20,9 +20,7 @@ various steps of the user-signup process.
 """
 
 
-from django.conf.urls.defaults import url
-from django.conf.urls.defaults import patterns
-from django.views.generic.simple import direct_to_template
+from django.conf.urls import url, patterns
 from django.contrib.auth import views as auth_views
 
 from registration.views import activate

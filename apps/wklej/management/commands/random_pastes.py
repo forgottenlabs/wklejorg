@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from wklej.models import Wklejka
+from apps.wklej.models import Wklejka
 from wklej.populate import wklejka
 
 

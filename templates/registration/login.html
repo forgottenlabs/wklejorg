@@ -1,4 +1,4 @@
-{% extends "base.dhtml" %}
+{% extends "base.html" %}
 
 {% block title %}logowanie{% endblock %}
 
@@ -26,7 +26,7 @@
                 <a href="/rejestracja" style="font-size: 16px;">Nie masz konta? Zarejestruj się!</a>
                 </p>
                 <p>
-                <a href="{% url password_reset %}">Zapomniałeś hasła? Zresetuj!</a>
+                <a href="{% url "password_reset" %}">Zapomniałeś hasła? Zresetuj!</a>
                 </p>
             </fieldset>
         </form>

@@ -22,8 +22,8 @@ from django.http import HttpResponse
 dispatcher = SimpleXMLRPCDispatcher(allow_none=False, encoding=None)  # Py 2.5
 
 # model
-from wklej.models import Wklejka
-from userstuff.models import UserProfile
+from apps.wklej.models import Wklejka
+from apps.userstuff.models import UserProfile
 
 
 def rpc_handler(request):
