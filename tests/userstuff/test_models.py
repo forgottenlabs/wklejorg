@@ -1,5 +1,5 @@
-from userstuff.models import UserProfile
-from wklej.models import Wklejka
+from apps.userstuff.models import UserProfile
+from apps.wklej.models import Wklejka
 from django.contrib.auth.models import User
 
 from django.test import TestCase

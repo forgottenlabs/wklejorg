@@ -11,13 +11,14 @@ MANAGERS = ADMINS
 
 ###############################################################################
 ###############################################################################
-ROOT_URLCONF = 'wklejorg.urls'
+ROOT_URLCONF = 'urls'
 TIME_ZONE = 'Europe/Warsaw'
 LANGUAGES = [
     ('en', 'English'),
     ('pl', 'Polish'),
 ]
 LANGUAGE_CODE = 'pl'
+ALLOWED_HOSTS = ["*"]
 
 SITE_ID = 1
 USE_I18N = True
@@ -54,7 +55,7 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_DIRS = (
-    rel('../templates')
+    rel('../templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -76,7 +77,6 @@ MIDDLEWARE_CLASSES = (
     'userban.middleware.BlockedIpMiddleware',
     'pagination.middleware.PaginationMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'raven.contrib.django.middleware.Sentry404CatchMiddleware',
 )
@@ -95,17 +95,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd party
-    'django_extensions',
     'helpers',
     'userban',
     'registration',
-    'south',
     'pagination',
     'raven.contrib.django',
 
     # Project specific
-    'wklej',
-    'userstuff',
+    'apps.wklej',
+    'apps.userstuff',
 ]
 
 

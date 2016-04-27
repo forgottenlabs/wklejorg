@@ -1,13 +1,14 @@
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
-from django.conf.urls.defaults import include
+from django.conf.urls import patterns, url, include
 from django.conf import settings
 from django.contrib import admin
+from django.views.generic import RedirectView, TemplateView
+from registration.views import RegistrationView
+
 admin.autodiscover()
 
+from apps.userstuff.models import UserProfile
+from apps.wklej.xmlrpc import rpc_handler
 
-from userstuff.models import UserProfile
-from wklej.xmlrpc import rpc_handler
 
 ###############################################################################
 ###############################################################################
@@ -22,11 +23,10 @@ urlpatterns = patterns(
      {'document_root': settings.STATIC_ROOT}),
 
     # 403
-    (r'^403/$', 'django.views.generic.simple.direct_to_template',
-     {'template': '403.html'}),
+    (r'^403/$', TemplateView.as_view(template_name='403.html')),
 
     ### homepage
-    (r'^$', 'wklejorg.homepage.homepage'),
+    (r'^$', 'homepage.homepage'),
 
     ### single paste:
     url(r'^id/(?P<id>\d+)/$', 'wklej.views.single', name="single"),
@@ -51,58 +51,52 @@ urlpatterns = patterns(
 
 
     ### list
-    url(r'^own/$', 'wklej.views.own', name="own"),
+    url(r'^own/$', 'apps.wklej.views.own', name="own"),
     #(r'^wklejki/$', 'wklej.views.wklejki'),
     #url(r'^tag/(?P<tag>\w+)/$', 'wklej.views.with_tag', name="with_tag"),
 
     ### registartion stuff
-    url(r'^accounts/register/$', 'registration.views.register',
+    url(r'^accounts/register/$', RegistrationView.as_view(),
         {'profile_callback': UserProfile.objects.create},
         name='registration_register'),
 
-    url(r'^accounts/', include('registration.urls')),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
     ### bunch of redirects
-    url(r'^accounts/profile/$', 'django.views.generic.simple.redirect_to',
-        {'url': '/'}),
-    url(r'^logout/$', 'django.views.generic.simple.redirect_to',
-        {'url': '/accounts/logout/'}),
-    url(r'^login/$', 'django.views.generic.simple.redirect_to',
-        {'url': '/accounts/login/'}),
-    url(r'^zaloguj/$', 'django.views.generic.simple.redirect_to',
-        {'url': '/accounts/login/'}),
-    url(r'^register/$', 'django.views.generic.simple.redirect_to',
-        {'url': '/accounts/register/'}),
-    url(r'^rejestracja/$', 'django.views.generic.simple.redirect_to',
-        {'url': '/accounts/register/'}),
+    url(r'^accounts/profile/$', RedirectView.as_view(url='/')),
+    url(r'^logout/$', RedirectView.as_view(url='/accounts/logout/')),
+    url(r'^login/$', RedirectView.as_view(url='/accounts/login/')),
+    url(r'^zaloguj/$', RedirectView.as_view(url='/accounts/login/')),
+    url(r'^register/$', RedirectView.as_view(url='/accounts/register/')),
+    url(r'^rejestracja/$', RedirectView.as_view(url='/accounts/register/')),
 
     url(r'^reset/$',
         'django.contrib.auth.views.password_reset',
-        {"template_name": 'registration/password_reset_form.dhtml'},
+        {"template_name": 'registration/password_reset_form.html'},
         name="password_reset"),
 
     url(r'^reset/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$',
         'django.contrib.auth.views.password_reset_confirm',
-        {'template_name': 'registration/password_reset_confirm.dhtml'},
+        {'template_name': 'registration/password_reset_confirm.html'},
         name="password_reset_confirm"),
 
     url(r'^reset/done/$',
         'django.contrib.auth.views.password_reset_done',
-        {"template_name": 'registration/password_reset_done.dhtml'},
+        {"template_name": 'registration/password_reset_done.html'},
         name="password_reset_done"),
 
     url(r'^reset/complete/$',
         'django.contrib.auth.views.password_reset_complete',
-        {"template_name": 'registration/password_reset_complete.dhtml'},
+        {"template_name": 'registration/password_reset_complete.html'},
         name="password_reset_complete"),
 
     url(r'^own/password/$', 'django.contrib.auth.views.password_change',
-        {"template_name": 'registration/password_change_form.dhtml'},
+        {"template_name": 'registration/password_change_form.html'},
         name="password_change"),
 
     url(r'^own/password/done/$',
         'django.contrib.auth.views.password_change_done',
-        {"template_name": 'registration/password_change_done.dhtml'},
+        {"template_name": 'registration/password_change_done.html'},
         name="password_change_done"),
 
 
@@ -114,19 +108,8 @@ urlpatterns = patterns(
     url(r'^salt/$', 'wklej.views.salt', name="salt"),
 
     ### Flatpages
-    url(r'^regulamin/$', 'django.views.generic.simple.direct_to_template', {
-        'template': 'flatpages/regulamin.html'
-        }),
-    url(r'^terms-of-use/$',
-        'django.views.generic.simple.direct_to_template', {
-            'template': 'flatpages/terms_of_service.html'
-        }),
-    url(r'^contact/$',
-        'django.views.generic.simple.direct_to_template', {
-            'template': 'flatpages/contact.html',
-        }),
-    url(r'^kontakt/$',
-        'django.views.generic.simple.direct_to_template', {
-            'template': 'flatpages/kontakt.html',
-        }),
+    url(r'^regulamin/$', TemplateView.as_view(template_name='flatpages/regulamin.html')),
+    url(r'^terms-of-use/$', TemplateView.as_view(template_name='flatpages/terms_of_service.html')),
+    url(r'^contact/$', TemplateView.as_view(template_name='flatpages/contact.html')),
+    url(r'^kontakt/$', TemplateView.as_view(template_name='flatpages/kontakt.html')),
 )
