@@ -11,12 +11,13 @@ DATABASES = {
 LANGUAGE_CODE = 'en'
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-INSTALLED_APPS += ['discoverage']
-TEST_RUNNER = 'discoverage.DiscoverageRunner'
+# INSTALLED_APPS += ['discoverage']
+# TEST_RUNNER = 'discoverage.DiscoverageRunner'
 GOOGLE_ANALYTICS_ID = ''
 COVERAGE_OMIT_MODULES = ['*test*', '*migrations*']
 RECAPTCHA_PRIVATE_KEY = ''
 RECAPTCHA_PUBLIC_KEY = ''
+SECRET_KEY = "asd"
 
 import os
 os.environ['RECAPTCHA_TESTING'] = 'True'

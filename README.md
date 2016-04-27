@@ -1,6 +1,8 @@
 wklejorg
 ========
 
+IMPORTANT: Currently broken, slowly being fixed.
+
 Source code of wklej.org nopaste. Nopaste built with Django.
 
 ## Setup
